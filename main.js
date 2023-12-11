@@ -2,11 +2,6 @@ import './style.css';
 import * as THREE from 'three';
 //import * as Gallery from './components/gallery-animation.js'
 
-const navPaintings = document.getElementById('nav_painting')
-const galleryWrap = document.querySelector('.gallery-wrap')
-const navExhibitions = document.getElementById('nav_exhibition')
-const exhibitionsWrap = document.querySelector('.exhibition-wrap')
-const infoText = document.querySelector('.test-div__text')
 const headerBtn = document.getElementById('menu-btn')
 const headerMenu = document.getElementById('menu-list')
 const sectionArr = [ ...document.querySelectorAll('section') ]
@@ -52,63 +47,3 @@ worksBtn.addEventListener('click', ()=>{
 backBtn.addEventListener('click', ()=>{
     menuWrap.classList.remove('no-height')
 })
-
-//
-const galleryPreviewImages = document.querySelectorAll('.item__img')
-const activeGalleryImage = document.getElementById('active-img')
-const activeImgWrap = document.querySelector('.active-image-wrap')
-
-
-navPaintings.addEventListener('click', ()=> {
-    galleryWrap.classList.toggle('gallery-active')
-})
-
-navExhibitions.addEventListener('click', ()=> {
-    exhibitionsWrap.classList.toggle('exhibition-active')
-})
-
-galleryPreviewImages.forEach((element)=> {
-    element.addEventListener('click', ()=> {
-        element.classList.toggle('item-active')
-        activeImgWrap.classList.toggle('active')
-        infoText.innerHTML = 'image active'
-        activeGalleryImage.src = element.src
-        //sresetInfo()
-    })
-})
-
-const resetInfo = () => {
-galleryPreviewImages.forEach((element)=> {
-    if(!element.classList.contains('item-active')) {
-        infoText.innerHTML = ''
-    }
-})
-}
-
-
-// const zoomElement = document.querySelector(".jedan");
-// const moveEl = document.querySelector(".dva");
-// const moveThree = document.querySelector(".tri");
-// const zoomFour = document.querySelector(".cetri");
-// let zoom = 1;
-// const ZOOM_SPEED = 0.1;
-// let move = 10
-// const MOVE_SPEED = 5
-
-// document.addEventListener("wheel", function(e) {  
-    
-//     if(e.deltaY > 0){    
-//         zoomElement.style.transform = `scale(${zoom += ZOOM_SPEED})`;  
-//         zoomFour.style.transform = `scale(${zoom += ZOOM_SPEED})`; 
-//         moveEl.style.transform = `translateX(${move += MOVE_SPEED}%)`;
-//         moveThree.style.transform = `translateX(${move += MOVE_SPEED}%)`;
-
-//     }else{    
-//         zoomElement.style.transform = `scale(${zoom -= ZOOM_SPEED})`;  
-//         zoomFour.style.transform = `scale(${zoom -= ZOOM_SPEED})`; 
-//         moveEl.style.transform = `translateX(${move -= MOVE_SPEED}%)`; 
-//         moveThree.style.transform = `translateX(${move -= MOVE_SPEED}%)`;
-//     }
-// });
-
-
