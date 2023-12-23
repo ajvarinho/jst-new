@@ -101,6 +101,7 @@ section {
 
 .cover__img {
     border: 1px solid blue;
+    opacity: 0.2;
 }
 
 /**/
@@ -488,6 +489,14 @@ section {
 
 .works {
     background: rgb(101, 189, 101);
+    color: white;
+    font-family: monospace;
+}
+
+.nav-works {
+    height: 40%;
+    background-image: url('./public/img/1.jpg');
+    border: 1px solid red;
 }
 
 .preview-wrap {
