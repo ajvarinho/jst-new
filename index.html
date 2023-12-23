@@ -9,6 +9,8 @@
   <body>
   <main id="main">
 
+    <!-- ELEMENT U POZADINI, aktivira animaciju-->
+
     <section class="cover flex-center">
 
       <button id="welcomeBtn" class="btn cover__btn">JUSTY_NA TA_SAK</button>
@@ -18,6 +20,8 @@
       </div>
 
     </section>
+
+    <!-- MENU WRAP, animacija ga smanjuje na 100% -->
 
     <section id="menuWrap" class="main-wrap flex-center">
 
@@ -98,6 +102,8 @@
 
     </section>
 
+    <!-- ELEMENT U POZADINI WORKS WRAP, aktivira animaciju-->
+
     <section class="cover-bg-wrap flex-center">
 
       <!-- <div class="img-small img-intro">
@@ -105,9 +111,12 @@
       </div> -->
 
       <section id="works" class="works grid wrapped-in">
+
         <button id="backBtn" class="back btn">
           gou bek
+          <p>&uarr;</p>
         </button>
+
         <div class="preview-wrap">
           <div id="gallery-wrap" class="gallery-wrap">
             <button id="btn-left" class="chevron">&#8249;</button>
@@ -141,9 +150,9 @@
           </div>
         </div>
   
-
         <div class="module-wrap">
-          <p>module selected</p>
+          <p>module selected:</p>
+          <p id="active-module"></p>
         </div>
   
         <div id="display" class="display">
@@ -159,9 +168,11 @@
             <h3>Invisible mountain, odnosni exhitibiton info wrap el</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. EHIBITION PISEM I TILPKAM U MRAKU.</p>
           </div>
+
         </div>
   
         <div class="nav-wrap">
+
           <button id="nav-works" class="btn nav-works">sssrlrct module
           </button>
   
@@ -191,9 +202,10 @@
         </section>
     </section>
 
-    <section id="about" class="about">
+    <!-- <section id="about" class="about">
         <p class="about__title">a_b_o_u_t</p>
-      </section>
+    </section> -->
+
   </main>
 
     <script type="module" src="/main.js"></script>

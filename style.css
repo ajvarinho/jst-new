@@ -493,12 +493,20 @@ section {
     font-family: monospace;
 }
 
+.back {
+    background: var(--bg-linear-2);
+}
+
 .nav-wrap {
     grid-column-start: 4;
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 4;
     border: .5em solid rgb(49, 220, 27);
+}
+
+.nav__wrap {
+    background: var(--bg-linear-2);
 }
 
 .nav-works {

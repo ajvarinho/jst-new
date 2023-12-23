@@ -14,6 +14,21 @@ const menuWrap = document.getElementById('menuWrap')
 const backBtn = document.getElementById('backBtn')
 const contactWrap = document.querySelector('.contact-wrap')
 
+//
+const previewImages = [ ...document.querySelectorAll('.item__img')]
+const imgPreviewEl = document.querySelector('#active-img')
+
+// works navigation
+
+const menuBtn = document.getElementById('nav-works')
+const activeModule = document.getElementById('active-module')
+
+const paintingsBtn = document.getElementById('nav_painting')
+const sculptureBtn = document.getElementById('nav_sculpture')
+const exhibitionsBtn = document.getElementById('nav_exhibition')
+const designBtn = document.getElementById('nav_design')
+
+
 
 
 const welcomeBtn = document.getElementById('welcomeBtn')
@@ -46,4 +61,32 @@ worksBtn.addEventListener('click', ()=>{
 
 backBtn.addEventListener('click', ()=>{
     menuWrap.classList.remove('no-height')
+})
+
+//WORKS WRAP FUNCTIONALITY
+
+paintingsBtn.addEventListener('click', ()=> {
+    activeModule.innerText = 'PAINTINGS'
+})
+
+sculptureBtn.addEventListener('click', ()=> {
+    activeModule.innerText = 'SCULPTURE'
+})
+
+exhibitionsBtn.addEventListener('click', ()=> {
+    activeModule.innerText = 'EXXHIBITIONS'
+})
+
+designBtn.addEventListener('click', ()=> {
+    activeModule.innerText = 'DESIGN'
+})
+
+previewImages.forEach((image) => {
+    image.addEventListener('click', (event)=> {
+        let test = event.target
+
+        let imageSrc = image.src
+        console.log('test', test, 'img src', imageSrc)
+        imgPreviewEl.src = imageSrc
+    })
 })
