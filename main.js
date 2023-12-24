@@ -168,11 +168,18 @@ previewImages.forEach((image, index) => {
     imgPreviewEl.src = imageSrc;
     overlayTitle.innerText = paintings[index].title;
   });
+});
 
-  image.addEventListener("mouseover", (event) => {
+const figureElArr = [...document.querySelectorAll("figure")];
+
+figureElArr.forEach((image, index) => {
+  image.addEventListener("mouseenter", (event) => {
     let test = event.target;
-    console.log("ola", previewInfoEl[index]);
-    previewInfoEl[index].innerText = image.title;
-    previewInfoEl[index].classList.add("test-hover");
+    test.querySelector(".preview-info").innerText = paintings[index].title;
+    test.querySelector(".preview-info").style.opacity = 1;
+  });
+  image.addEventListener("mouseleave", (event) => {
+    let test = event.target;
+    test.querySelector(".preview-info").style.opacity = 0;
   });
 });

@@ -453,6 +453,23 @@ padding: 1em 2em;
     overflow-y: scroll;
 }
 
+.gallery-wrap__item {
+    padding: 1em;
+    position: relative;
+}
+
+.preview-info {
+    position: absolute;
+    inset: 0;
+    background: grey;
+    opacity: 0;
+    color: white;
+    font-size: 1.5em;
+    pointer-events: none;
+    text-align: center;
+    transition-duration: .5s;
+}
+
 .module-wrap {
     grid-column-start: 4;
     grid-column-end: 5;
@@ -468,12 +485,6 @@ padding: 1em 2em;
     grid-row-start: 2;
     grid-row-end: end;
     border: 1px solid rgb(51, 141, 19);
-}
-
-
-.test-hover {
-    color: white;
-    opacity: 1;
 }
 
 @media (max-width: 30em) {
