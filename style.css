@@ -132,11 +132,8 @@ section {
 .about-wrap-test {
     position: relative;
     width: 0;
-    transition-duration: .7s;
-}
-
-.about-wrap-test__open {
-    width: 200%;
+    transition-duration: 1s;
+    opacity: 0;
 }
 
 .about-wrap__title {
@@ -154,6 +151,11 @@ section {
     border: .5em solid rgba(68, 124, 229, .7);
     position: absolute;
     inset: 0 100% 0 0;
+}
+
+.about-wrap-test__open {
+    width: 200%;
+    opacity: 1;
 }
 
 
@@ -485,6 +487,17 @@ padding: 1em 2em;
     grid-row-start: 2;
     grid-row-end: end;
     border: 1px solid rgb(51, 141, 19);
+}
+
+.active-image-wrap {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: grey;
+    opacity: 0.5;
 }
 
 @media (max-width: 30em) {
