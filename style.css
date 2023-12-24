@@ -209,7 +209,7 @@ section {
 /* MAIN MENU ITEMS LAYOUT*/
 
 .grid-item.one {
-    background-color: #8ca0ff;
+    background-color: #d3daff;
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 1;
@@ -219,12 +219,6 @@ section {
     /* background: repeating-linear-gradient(transparent, rgba(9, 9, 99, 0.8) .1rem); */
     padding: 2em;
     box-shadow: 1em 1em 1em 1em rgb(93, 72, 199);
-
-}
-
-.grid-item.one:hover {
-    border-bottom: .8em dashed rgb(200, 0, 255);
-    border-right: .5em solid rgba(23, 97, 217, 0.5);
 }
 
 .grid-item.one > .img-small {
@@ -263,14 +257,11 @@ section {
 .grid-item.two::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    inset: 0;
     bottom: 0;
     background-image: url('./public/img/paintings/2.png');
     background-size: cover;
     background-repeat: no-repeat;
-    border-radius: 12em 0 0 0;
 }
 
 .two > .img-small {
@@ -477,6 +468,12 @@ padding: 1em 2em;
     grid-row-start: 2;
     grid-row-end: end;
     border: 1px solid rgb(51, 141, 19);
+}
+
+
+.test-hover {
+    color: white;
+    opacity: 1;
 }
 
 @media (max-width: 30em) {

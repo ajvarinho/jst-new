@@ -3,13 +3,38 @@ import * as THREE from "three";
 //import * as Gallery from './components/gallery-animation.js'
 
 const paintings = [
-  { src: "/public/img/paintings/1.jpg", alt: "", title: "", info: "" },
-  { src: "/public/img/paintings/2.jpg", alt: "", title: "", info: "" },
-  { src: "/public/img/paintings/3.jpg", alt: "", title: "", info: "" },
-  { src: "/public/img/paintings/4.jpg", alt: "", title: "", info: "" },
-  { src: "/public/img/paintings/5.jpg", alt: "", title: "", info: "" },
-  { src: "/public/img/paintings/6.jpg", alt: "", title: "", info: "" },
-  { src: "/public/img/paintings/7.jpg", alt: "", title: "", info: "" },
+  {
+    src: "/public/img/paintings/1.jpg",
+    alt: "",
+    title: "test jedan",
+    info: "",
+  },
+  { src: "/public/img/paintings/2.jpg", alt: "", title: "test alo", info: "" },
+  {
+    src: "/public/img/paintings/3.jpg",
+    alt: "",
+    title: "test jebo majku ",
+    info: "",
+  },
+  { src: "/public/img/paintings/4.jpg", alt: "", title: "sfax", info: "" },
+  {
+    src: "/public/img/paintings/5.jpg",
+    alt: "",
+    title: "olimpik marsej",
+    info: "",
+  },
+  {
+    src: "/public/img/paintings/6.jpg",
+    alt: "",
+    title: "test jedan",
+    info: "",
+  },
+  {
+    src: "/public/img/paintings/7.jpg",
+    alt: "",
+    title: "test jedan",
+    info: "",
+  },
 ];
 
 const design = [
@@ -33,6 +58,7 @@ const worksWrap = document.getElementById("works");
 const menuWrap = document.getElementById("menuWrap");
 const backBtn = document.getElementById("backBtn");
 const contactWrap = document.querySelector(".contact-wrap");
+const overlayTitle = document.getElementById("overlay-title");
 
 // GRID ITEMS
 
@@ -57,6 +83,8 @@ const designBtn = document.getElementById("nav_design");
 
 const welcomeBtn = document.getElementById("welcomeBtn");
 const welcomeEl = document.querySelector(".cover");
+
+const previewInfoEl = [...document.querySelectorAll(".preview-info")];
 
 // ANIMACIJE INTRO
 
@@ -133,12 +161,18 @@ designBtn.addEventListener("click", () => {
   activeModule.innerText = "DESIGN";
 });
 
-previewImages.forEach((image) => {
+previewImages.forEach((image, index) => {
   image.addEventListener("click", (event) => {
     let test = event.target;
-
     let imageSrc = image.src;
-    console.log("test", test, "img src", imageSrc);
     imgPreviewEl.src = imageSrc;
+    overlayTitle.innerText = paintings[index].title;
+  });
+
+  image.addEventListener("mouseover", (event) => {
+    let test = event.target;
+    console.log("ola", previewInfoEl[index]);
+    previewInfoEl[index].innerText = image.title;
+    previewInfoEl[index].classList.add("test-hover");
   });
 });
