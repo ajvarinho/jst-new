@@ -216,19 +216,15 @@ section {
     grid-row-end: 3;
     /**/
     transition-duration: .7s;
-    background: repeating-linear-gradient(transparent, rgba(9, 9, 99, 0.8) .1rem);
+    /* background: repeating-linear-gradient(transparent, rgba(9, 9, 99, 0.8) .1rem); */
     padding: 2em;
-    animation: shake2 .2s infinite ease-in-out;
-    border-radius: 0 12em 0 0;
-    border-bottom: 2em dashed rgb(119, 255, 0);
-    border-right: 1em solid rgba(23, 23, 217, 0.5);
-    box-shadow: 1em 1em 1em 1em chartreuse;
+    box-shadow: 1em 1em 1em 1em rgb(93, 72, 199);
 
 }
 
 .grid-item.one:hover {
-    border-bottom: 2em dashed rgb(0, 72, 255);
-    border-right: 1em solid rgba(101, 217, 23, 0.5);
+    border-bottom: .8em dashed rgb(200, 0, 255);
+    border-right: .5em solid rgba(23, 97, 217, 0.5);
 }
 
 .grid-item.one > .img-small {
@@ -242,54 +238,14 @@ section {
 .wrap {
     position: absolute;
     top: 20%;
-    right: 0;
+    right: 20%;
     height: 50%;
     width: 30%;
 }
 
 /* INCLUDE PSEUDO ELEMENTS WITH GENERAL STYLING AND PARTICULAR*/
 
-.one > .grid-item__img-wrap::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-image: url('./public/img/portret-removebg-preview.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 0;
-    height: 50%;
-    width: 32%;
-    transition-duration: .5s;
-}
 
-.one > .grid-item__img-wrap:hover::before {
-    transform: scale(1.2);
-    opacity: 0.8;
-}
-
-.one > .grid-item__img-wrap::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-image: url('./public/img/portret-removebg-preview.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 0;
-    height: 50%;
-    width: 32%;
-    transition-duration: 1s;
-}
-
-.one > .grid-item__img-wrap:hover::after {
-    transform: scale(1.2) rotateX(180deg);
-    opacity: 0.5;
-}
 
 .grid-item.two {
     position: relative;
@@ -300,8 +256,8 @@ section {
     grid-row-end: 4;
     transition-duration: .7s;
     background: repeating-linear-gradient(transparent, rgba(87, 9, 99, 0.8) .1rem);
-    border-radius: 15em 0 0 0;
-    border-left: 2em solid rgb(119, 255, 0);
+    border-radius: 15em 0 10em 0;
+    border-left: .5em solid rgb(207, 185, 234);
 }
 
 .grid-item.two::before {
@@ -311,7 +267,7 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('./public/img/8.jpg');
+    background-image: url('./public/img/paintings/2.png');
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 12em 0 0 0;
