@@ -34,6 +34,13 @@ const menuWrap = document.getElementById("menuWrap");
 const backBtn = document.getElementById("backBtn");
 const contactWrap = document.querySelector(".contact-wrap");
 
+// GRID ITEMS
+
+const gridItemOne = document.querySelector(".grid-item.one");
+const gridItemTwo = document.querySelector(".grid-item.two");
+const gridItemThree = document.querySelector(".grid-item.contact-wrap");
+const gridItemFour = document.querySelector(".grid-item.four");
+
 //
 const previewImages = [...document.querySelectorAll(".item__img")];
 const imgPreviewEl = document.querySelector("#active-img");
@@ -53,9 +60,11 @@ const welcomeEl = document.querySelector(".cover");
 
 // ANIMACIJE INTRO
 
+const aboutClose = document.getElementById("about-close");
+
 welcomeBtn.addEventListener("click", () => {
   welcomeEl.classList.add("anim-opening");
-  imgIntro.classList.add("img-width");
+
   sectionArr.forEach((element) => {
     element.classList.add("anim-scroll");
   });
@@ -65,13 +74,21 @@ welcomeBtn.addEventListener("click", () => {
   });
 });
 
-headerBtn.addEventListener("click", () => {
-  headerMenu.classList.toggle("open");
-  imgIntro.style.width = "0%";
-});
-
 aboutBtn.addEventListener("click", () => {
   aboutWrap.classList.toggle("about-wrap-test__open");
+  gridItemOne.classList.add("no-display");
+  gridItemTwo.classList.add("about-active");
+  gridItemThree.classList.add("no-display");
+  gridItemFour.classList.add("about-active");
+});
+
+aboutClose.addEventListener("click", () => {
+  aboutWrap.classList.toggle("about-wrap-test__open");
+
+  gridItemOne.classList.remove("no-display");
+  gridItemTwo.classList.remove("about-active");
+  gridItemThree.classList.remove("no-display");
+  gridItemFour.classList.remove("about-active");
 });
 
 worksBtn.addEventListener("click", () => {
