@@ -2,6 +2,25 @@ import './style.css';
 import * as THREE from 'three';
 //import * as Gallery from './components/gallery-animation.js'
 
+const paintings = [
+    {src: '/public/img/paintings/1.jpg',
+     alt: '',
+     title: '',
+     info: ''
+    },
+    {src: '/public/img/paintings/2.jpg',
+    alt: '',
+    title: '',
+    info: ''
+   },
+   {src: '/public/img/paintings/3.jpg',
+   alt: '',
+   title: '',
+   info: ''
+  }
+]
+
+
 const headerBtn = document.getElementById('menu-btn')
 const headerMenu = document.getElementById('menu-list')
 const sectionArr = [ ...document.querySelectorAll('section') ]
@@ -27,9 +46,6 @@ const paintingsBtn = document.getElementById('nav_painting')
 const sculptureBtn = document.getElementById('nav_sculpture')
 const exhibitionsBtn = document.getElementById('nav_exhibition')
 const designBtn = document.getElementById('nav_design')
-
-
-
 
 const welcomeBtn = document.getElementById('welcomeBtn')
 const welcomeEl = document.querySelector('.cover')
