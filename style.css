@@ -412,12 +412,12 @@ padding: 1em 2em;
     box-shadow: inset 0px 0px 10px blue;
   }
   
-  .open {
+  /* .open {
     display: block;
     height: 20em;
     width: 100%;
     opacity: 1;
-  } 
+  }  */
 
   .fill {
     height: 10em;
