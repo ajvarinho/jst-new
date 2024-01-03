@@ -31,7 +31,8 @@ html {
 body {
     margin: 0;
     scroll-behavior: smooth;
-    font-family: 'Pixacao', sans-serif;
+    font-family: monospace;
+    /* font-family: 'Pixacao', sans-serif; */
     font-size: 1.125rem;
     line-height: 1.2;
     overflow-x: hidden;
