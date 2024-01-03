@@ -187,8 +187,12 @@ figureElArr.forEach((image, index) => {
 //canvas animation
 
 const testImg = new Image();
+const testImgTwo = new Image();
+const testImgThree = new Image();
 function init() {
   testImg.src = "./img/paintings/rnd.png";
+  testImgTwo.src = "./img/paintings/4.jpg";
+  testImgThree.src = "./img/paintings/5.jpg";
   window.requestAnimationFrame(draw);
 }
 
@@ -211,7 +215,7 @@ function draw() {
   );
   ctx.translate(105, 0);
   ctx.fillRect(0, -12, 40, 24); // Shadow
-  ctx.drawImage(testImg, -12, -12);
+  ctx.drawImage(testImg, -2, -2);
 
   // Moon
   ctx.save();
@@ -220,7 +224,7 @@ function draw() {
       ((2 * Math.PI) / 6000) * time.getMilliseconds()
   );
   ctx.translate(0, 28.5);
-  ctx.drawImage(testImg, 3.5, 3.5);
+  ctx.drawImage(testImgTwo, 3.5, 3.5);
   ctx.restore();
 
   ctx.restore();
@@ -229,7 +233,7 @@ function draw() {
   ctx.arc(150, 150, 105, 0, Math.PI * 2, false); // Earth orbit
   ctx.stroke();
 
-  ctx.drawImage(testImg, 0, 0, 100, 100);
+  ctx.drawImage(testImgThree, 0, 0, 100, 100);
 
   window.requestAnimationFrame(draw);
 }
