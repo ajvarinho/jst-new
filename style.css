@@ -45,9 +45,10 @@ main {
     min-height: 100vh;
     position: relative;
     margin-inline: auto;
-    width: fit-content;
+    /* width: fit-content; */
     /*intro kao horizontal scroll */
-    overflow: scroll;
+    /* overflow: scroll; */
+    overflow: hidden;
 }
   
 img, svg {
@@ -203,6 +204,10 @@ section {
     height: 0;
 }
 
+
+.grid-wrap {
+    width: 80%;
+}
 
 /* GRID LAYOUT */
 
