@@ -177,9 +177,10 @@ section {
 .contact-wrap {
     grid-column-start: 1;
     grid-column-end: 2;
-    grid-row-start: 3;
-    grid-row-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
     border: .5em dashed chartreuse;
+    box-shadow: inset .5em .5em 1em blueviolet;
 }
 
 .contact-wrap > .img-small {
@@ -239,8 +240,10 @@ section {
     /**/
     transition-duration: .7s;
     /* background: repeating-linear-gradient(transparent, rgba(9, 9, 99, 0.8) .1rem); */
-    padding: 2em;
+    padding: 1em;
     box-shadow: 1em 1em 1em 1em rgb(93, 72, 199);
+    /**/
+    border-radius: 0 0em 0 2em;
 }
 
 .grid-item.one > .img-small {
@@ -252,11 +255,17 @@ section {
 }
 
 .test {
+    padding: 1.5em;
+    box-shadow: 1em 1em 1em 1em rgb(93, 72, 199);
+    /**/
+    background: repeating-linear-gradient(transparent, rgba(9, 9, 99, 0.8) .1rem);
+    border-radius: 0 0em 0 2em;
     background-image: url('./public/img/paintings/rnd.png');
     background-repeat: no-repeat;
-    height: 15%;
-  width: 50%;
-  transition: .5s;
+    background-repeat: no-repeat;
+  background-position-x: -222px;
+  background-position-y: -282px;
+  margin: .5em;
 }
 
 .test:hover {
@@ -294,6 +303,7 @@ section {
     opacity: 0.5;
     background-image: url('./public/img/paintings/2.png');
     background-repeat: no-repeat;
+    /* transform: rotateY(180deg); */
 }
 
 .grid-item.two::after {
@@ -327,7 +337,8 @@ section {
     width: 50%;
     padding: 3em 2em;
 }
-.two > .img-small::before {
+
+/* .two > .img-small::before {
     content: '';
     position: absolute;
     top: 0;
@@ -335,11 +346,11 @@ section {
     height: 100%;
     width: 100%;
     background: repeating-linear-gradient(45deg, #543fa6, #e1e1f8 15%, #f33cf6 20%);
-    /* animation: shake 1s infinite ease-in-out; */
+    animation: shake 1s infinite ease-in-out;
     border-radius: 50%;
-}
+} */
 
-.two > .img-small::after {
+/* .two > .img-small::after {
     content: '';
     position: absolute;
     top: 0;
@@ -348,7 +359,7 @@ section {
     width: 100%;
     background: repeating-linear-gradient(transparent, rgba(87, 9, 99, 0.8) .1rem);
     opacity: 0.5;
-} 
+}  */
 
 .grid-item.four {
     position: relative;
