@@ -13,23 +13,20 @@
 
     <section class="cover">
 
-      <!--prebaciti u position absolute-->
-
       <button id="welcomeBtn" class="btn cover__btn">JUSTYNA TASAK</button>
 
-      <div class="cover__img" tabindex="0">
-        <img class="item__img" src="./public/img/paintings/9.jpg" alt=""/>
+      <div class="cover__img">
+        <picture>
+          <source srcset="./public/img/design/2.jpg" media="((max-width: 600px))" />
+          <img src="./public/img/paintings/9.jpg" alt="" />
+        </picture>
       </div>
-
+      
     </section>
 
     <!-- MENU WRAP, animacija ga smanjuje na 100% -->
 
     <section id="menuWrap" class="main-wrap flex-center">
-
-      <!-- <div class="img-small img-intro">
-        <img class="card__image" src="./public/img/paintings/2.jpg" alt=""/>
-      </div> -->
 
       <div class="grid-wrap">
 
@@ -71,7 +68,7 @@
           </div>
 
   
-          <div class="grid-item four">
+          <div class="grid-item four flex-center">
                         <!-- TEST ZA HORIZONTAL-->
               <ul id="menu-list" class="menu-list">
                 <li>
@@ -95,13 +92,18 @@
 
       </div>
 
-      <div id="aboutWrap" class="about-wrap">
+      <div id="aboutWrap" class="about-wrap flex-center">
         <h2 class="about-wrap__title">justyna tasak</h2>
         <div class="about-wrap__img-wrap">
           <img src="/public/img/jt.jpeg" alt="jsutyna portrait"/>
         </div>
         <div class="about-wrap__text-wrap">
-          Lorem ipsum s asperiores nobis maiores vitae delectuilique.
+          <p>
+            Born and raised in Poland, I finished college of Fine Arts with Bachelor in Fashion Design. 
+            My interest in clothes was always present, 
+            but the real work in the industry started just before my college, when I was assistant for Yulia Babich in her atelier,
+            in Szczecin. The environment of clothes design was inspiring and made me fall in love with the fashion itself.
+          </p>
         </div>
 
         <button id="about-close" class="btn about-close">

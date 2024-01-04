@@ -103,20 +103,13 @@ welcomeBtn.addEventListener("click", () => {
 });
 
 aboutBtn.addEventListener("click", () => {
-  aboutWrap.classList.toggle("about-wrap-test__open");
-  gridItemOne.classList.add("no-display");
-  gridItemTwo.classList.add("about-active");
-  gridItemThree.classList.add("no-display");
-  gridItemFour.classList.add("about-active");
+  aboutWrap.classList.remove("about-wrap");
+  aboutWrap.classList.add("about-wrap-test__open");
 });
 
 aboutClose.addEventListener("click", () => {
-  aboutWrap.classList.toggle("about-wrap-test__open");
-
-  gridItemOne.classList.remove("no-display");
-  gridItemTwo.classList.remove("about-active");
-  gridItemThree.classList.remove("no-display");
-  gridItemFour.classList.remove("about-active");
+  aboutWrap.classList.remove("about-wrap-test__open");
+  aboutWrap.classList.add("about-wrap");
 });
 
 worksBtn.addEventListener("click", () => {
