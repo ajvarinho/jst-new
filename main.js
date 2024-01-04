@@ -186,56 +186,95 @@ figureElArr.forEach((image, index) => {
 
 //canvas animation
 
-const testImg = new Image();
-const testImgTwo = new Image();
-const testImgThree = new Image();
-function init() {
-  testImg.src = "./img/paintings/rnd.png";
-  testImgTwo.src = "./img/paintings/4.jpg";
-  testImgThree.src = "./img/paintings/5.jpg";
-  window.requestAnimationFrame(draw);
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+let raf;
+let running = false;
+
+const ball = {
+  x: 100,
+  y: 100,
+  vx: 5,
+  vy: 1,
+  radius: 25,
+  color: "blue",
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+    ctx.closePath();
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  },
+};
+
+//test
+const imageEl = new Image();
+imageEl.src = "./img/paintings/rnd.png";
+
+imageEl.onload = () => {
+  const pattern = ctx.createPattern(imageEl, "repeat");
+  ctx.fillStyle = pattern;
+  ctx.fillRect(0, 0, 200, 200);
+};
+
+const image = {
+  //https://media.gq.com/photos/6508829d305ef4e0229049b3/master/pass/plane.jpg
+  x: 100,
+  y: 100,
+  vx: 5,
+  vy: 1,
+  radius: 25,
+  // color: "blue",
+  src: "https://media.gq.com/photos/6508829d305ef4e0229049b3/master/pass/plane.jpg",
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+    ctx.closePath();
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  },
+};
+
+function clear() {
+  ctx.fillStyle = "rgba(255, 255, 255, 0.3)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function draw() {
-  const ctx = document.getElementById("canvas").getContext("2d");
+  clear();
+  ball.draw();
+  ball.x += ball.vx;
+  ball.y += ball.vy;
 
-  ctx.globalCompositeOperation = "destination-over";
-  ctx.clearRect(0, 0, 300, 300); // clear canvas
+  if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
+    ball.vy = -ball.vy;
+  }
+  if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+    ball.vx = -ball.vx;
+  }
 
-  ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
-  ctx.strokeStyle = "rgba(0, 153, 255, 0.4)";
-  ctx.save();
-  ctx.translate(150, 150);
-
-  // Earth
-  const time = new Date();
-  ctx.rotate(
-    ((2 * Math.PI) / 60) * time.getSeconds() +
-      ((2 * Math.PI) / 60000) * time.getMilliseconds()
-  );
-  ctx.translate(105, 0);
-  ctx.fillRect(0, -12, 40, 24); // Shadow
-  ctx.drawImage(testImg, -2, -2);
-
-  // Moon
-  ctx.save();
-  ctx.rotate(
-    ((2 * Math.PI) / 6) * time.getSeconds() +
-      ((2 * Math.PI) / 6000) * time.getMilliseconds()
-  );
-  ctx.translate(0, 28.5);
-  ctx.drawImage(testImgTwo, 3.5, 3.5);
-  ctx.restore();
-
-  ctx.restore();
-
-  ctx.beginPath();
-  ctx.arc(150, 150, 105, 0, Math.PI * 2, false); // Earth orbit
-  ctx.stroke();
-
-  ctx.drawImage(testImgThree, 0, 0, 100, 100);
-
-  window.requestAnimationFrame(draw);
+  raf = window.requestAnimationFrame(draw);
 }
 
-init();
+canvas.addEventListener("mousemove", (e) => {
+  if (!running) {
+    clear();
+    ball.x = e.clientX;
+    ball.y = e.clientY;
+    ball.draw();
+  }
+});
+
+canvas.addEventListener("click", (e) => {
+  if (!running) {
+    raf = window.requestAnimationFrame(draw);
+    running = true;
+  }
+});
+
+canvas.addEventListener("mouseout", (e) => {
+  window.cancelAnimationFrame(raf);
+  running = false;
+});
+
+ball.draw();

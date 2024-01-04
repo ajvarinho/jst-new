@@ -251,6 +251,19 @@ section {
     width: 50%;
 }
 
+.test {
+    background-image: url('./public/img/paintings/rnd.png');
+    background-repeat: no-repeat;
+    height: 15%;
+  width: 50%;
+  transition: .5s;
+}
+
+.test:hover {
+    height: 80%;
+    width: 100%;
+}
+
 .wrap {
     position: absolute;
     top: 20%;
@@ -278,10 +291,32 @@ section {
     content: '';
     position: absolute;
     inset: 0;
-    bottom: 0;
+    opacity: 0.5;
     background-image: url('./public/img/paintings/2.png');
-    background-size: cover;
     background-repeat: no-repeat;
+}
+
+.grid-item.two::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 0 50%;
+    background-image: url('/public/img/paintings/2.png');
+    background-repeat: no-repeat;
+    border: 1px solid red;
+    z-index: -1;
+    border-bottom: .5em dotted blue;
+    /* border-radius: 0 0 12em 0; */
+    box-shadow: .5em .5em 1em inset purple;
+    animation: align 1s linear;
+}
+
+@keyframes align {
+    0% {
+        inset: 0 0 0 50%;
+    }
+    100% {
+        inset: 0 0 0 0;
+    }
 }
 
 .two > .img-small {
@@ -292,8 +327,7 @@ section {
     width: 50%;
     padding: 3em 2em;
 }
-
-/* .two > .img-small::before {
+.two > .img-small::before {
     content: '';
     position: absolute;
     top: 0;
@@ -301,7 +335,7 @@ section {
     height: 100%;
     width: 100%;
     background: repeating-linear-gradient(45deg, #543fa6, #e1e1f8 15%, #f33cf6 20%);
-    animation: shake 1s infinite ease-in-out;
+    /* animation: shake 1s infinite ease-in-out; */
     border-radius: 50%;
 }
 
@@ -314,7 +348,7 @@ section {
     width: 100%;
     background: repeating-linear-gradient(transparent, rgba(87, 9, 99, 0.8) .1rem);
     opacity: 0.5;
-} */
+} 
 
 .grid-item.four {
     position: relative;
