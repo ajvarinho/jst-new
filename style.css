@@ -8,6 +8,12 @@
     --bg-linear-2: linear-gradient(35deg, rgb(68, 124, 229), coral);
     --bg-linear-3: linear-gradient(35deg, rgba(68, 124, 229, .7), rgba(20, 14, 132, .8));
     --justyna-mix: linear-gradient(0.25turn, rgb(25, 113, 221, 0.3),rgba(26, 25, 25, 0.2));
+
+    /* box shadows */
+    --box-shadow-1: 1em 0.5em rgba(168, 8, 232, 0.7), -1em 2em 0.5em rgb(168, 8, 232); 
+
+    /* filters */
+    --filter-1: drop-shadow(1em 1em 20px rgba(100, 84, 243, 0.6)) contrast(200%);
 }
 
 * {
@@ -64,15 +70,24 @@ ul {
     margin: 0;
     padding: 0;
 }
-  
+
 section {
+    position: relative;
+}
+  
+.content-card {
     height: 100vh;
     background: linear-gradient(45deg, rgba(14, 155, 207, 0.6), rgba(59, 59, 151, 0.6));
     padding: 0 2em;
-    /*intro kao horizontal scroll */
-    width: 200%;
+    width: 100%;
     overflow: scroll;
     transition-duration: 1s;
+}
+
+/*intro kao horizontal scroll */
+
+.start-wide {
+    width: 200%;
 }
 
 /* HELPERS */
@@ -116,26 +131,6 @@ section {
     opacity: 0.2;
     position: absolute;
     inset: 0 0 0 10%;
-}
-
-/**/
-
-.anim-scroll{
-    animation: anim-scroll 1s linear;
-}
-
-@keyframes anim-scroll {
-    0%{
-        width: 180%;
-    }
-
-    50%{
-        width: 150%;
-    }
-
-    100%{
-        width: 100%;
-    }
 }
 
 /* ABOUT */
@@ -200,11 +195,7 @@ section {
 .about-wrap-test__open {
     opacity: 1;
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 50%;
-    right: 0;
-    width: 200%;
+    inset: 0;
     background: var(--bg-linear-3);
     transition-duration: 1.5s;
 }
@@ -390,15 +381,6 @@ section {
     transform: scale(0.7);
 }
 
-@keyframes align {
-    0% {
-        inset: 0 0 0 50%;
-    }
-    100% {
-        inset: 0 0 0 0;
-    }
-}
-
 .two > .img-small {
     position: relative;
     top: 0;
@@ -469,43 +451,27 @@ section {
     width: 50%;
 }
 
-.about-active {
-    grid-column-start: 1;
-}
-
 
 .menu-btn {
 border: 1px dotted chartreuse;
 padding: 1em 2em;
 }
   
-  .menu-list {
-    transition-duration: .7s;
-    list-style-type: none;
-  }
+.menu-list {
+transition-duration: .7s;
+list-style-type: none;
+}
 
-  .menu-list > li > button {
-    padding: .5em 1em;
-    border: 1px solid orange;
-  }
-  
-  .btn:active {
-    transform: translateY(0.1em);
-    box-shadow: inset 0px 0px 10px blue;
-  }
-  
-  /* .open {
-    display: block;
-    height: 20em;
-    width: 100%;
-    opacity: 1;
-  }  */
+.menu-list > li > button {
+padding: .5em 1em;
+border: 1px solid orange;
+}
 
-  .fill {
-    height: 10em;
-    border: 1px solid red;
-    cursor:url(http://www.javascriptkit.com/dhtmltutors/cursor-hand.gif), auto;
-  }
+.btn:active {
+transform: translateY(0.1em);
+box-shadow: inset 0px 0px 10px blue;
+}
+  
 
 .works {
     background: rgb(101, 189, 101);

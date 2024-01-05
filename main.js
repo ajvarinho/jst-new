@@ -1,6 +1,4 @@
 import "./style.css";
-// import * as THREE from "three";
-//import * as Gallery from './components/gallery-animation.js'
 
 const paintings = [
   {
@@ -91,15 +89,10 @@ const previewInfoEl = [...document.querySelectorAll(".preview-info")];
 const aboutClose = document.getElementById("about-close");
 
 welcomeBtn.addEventListener("click", () => {
+  welcomeBtn.classList.add("no-display");
   welcomeEl.classList.add("anim-opening");
-
-  sectionArr.forEach((element) => {
-    element.classList.add("anim-scroll");
-  });
+  menuWrap.classList.remove("start-wide");
   contactWrap.classList.add("wrap-on");
-  sectionArr.forEach((element) => {
-    element.style.width = "100%";
-  });
 });
 
 aboutBtn.addEventListener("click", () => {
@@ -107,7 +100,7 @@ aboutBtn.addEventListener("click", () => {
   aboutWrap.classList.add("about-wrap-test__open");
 });
 
-aboutClose.addEventListener("click", () => {
+aboutWrap.addEventListener("click", () => {
   aboutWrap.classList.remove("about-wrap-test__open");
   aboutWrap.classList.add("about-wrap");
 });

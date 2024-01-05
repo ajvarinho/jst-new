@@ -9,126 +9,121 @@
   <body>
   <main id="main">
 
-    <!-- ELEMENT U POZADINI, aktivira animaciju-->
+    <section class="upper">
 
-    <section class="cover">
-
-      <button id="welcomeBtn" class="btn cover__btn">JUSTYNA TASAK</button>
-
-      <div class="cover__img">
-        <picture>
-          <source srcset="./public/img/design/2.jpg" media="((max-width: 600px))" />
-          <img src="./public/img/paintings/9.jpg" alt="" />
-        </picture>
+      <div class="cover content-card">
+        <button id="welcomeBtn" class="btn cover__btn">JUSTYNA TASAK</button>
+        <div class="cover__img">
+          <picture>
+            <source srcset="./public/img/design/2.jpg" media="((max-width: 600px))" />
+            <img src="./public/img/paintings/9.jpg" alt="" />
+          </picture>
+        </div>
       </div>
-      
-    </section>
 
-    <!-- MENU WRAP, animacija ga smanjuje na 100% -->
+      <div id="menuWrap" class="content-card start-wide flex-center">
 
-    <section id="menuWrap" class="main-wrap flex-center">
+        <div class="grid-wrap">
 
-      <div class="grid-wrap">
+          <div id="intro" class="grid-wrap__intro grid">
+  
+            <div class="grid-item one">
+              <div class="test">
+                <p>JUS</p>
+              </div>
+              <div class="test">
+                <p>TY</p>
+              </div>
+              <div class="test">
+                <p>NA</p>
+              </div>
+              <div class="test">
+                <p>TA</p>
+              </div>
+              <div class="test">
+                <p>SAK</p>
+              </div>
+            </div>
+            
+            <div class="grid-item two">
+              <div class="img-small">
+                <img class="grid-item__img" src="./public/img/20230315_000518-removebg-preview.png" alt=""/>
+              </div>
+            </div>
+    
+            <div class="grid-item contact-wrap">
+              <div class="img-small">
+                <img class="grid-item__img" src="./public/img/20230315_000518-removebg-preview.png" alt=""/>
+              </div>
+              <div class="contact-wrap__list">
+                  <a href="https://www.instagram.com/justynka_tasak?igsh=Nmk2aG5qbjB5Y3l2" target="_blank">
+                    <!-- <img src="./public/Instagram_icon.png" alt=""/> -->
+                  </a>
+              </div>
+            </div>
+  
+            <div class="grid-item four flex-center">
+                <ul id="menu-list" class="menu-list">
+                  <li>
+                      <button id="aboutBtn" class="btn about">
+                        about
+                      </button>
+                  </li>
+                  <li>
+                      <button id="worksBtn" class="btn works">
+                        works
+                      </button>
+                  </li>
+                  <li>
+                      <button class="btn contact">
+                        contact
+                      </button>
+                  </li>
+                </ul>
+            </div>
 
-        <div id="intro" class="grid-wrap__intro grid">
-
-          <div class="grid-item one">
-            <div class="test">
-              <p>JUS</p>
-            </div>
-            <div class="test">
-              <p>TY</p>
-            </div>
-            <div class="test">
-              <p>NA</p>
-            </div>
-            <div class="test">
-              <p>TA</p>
-            </div>
-            <div class="test">
-              <p>SAK</p>
-            </div>
-          </div>
-          
-          <div class="grid-item two">
-            <div class="img-small">
-              <img class="grid-item__img" src="./public/img/20230315_000518-removebg-preview.png" alt=""/>
-            </div>
           </div>
   
-          <div class="grid-item contact-wrap">
-            <div class="img-small">
-              <img class="grid-item__img" src="./public/img/20230315_000518-removebg-preview.png" alt=""/>
-            </div>
-            <div class="contact-wrap__list">
-                <a href="https://www.instagram.com/justynka_tasak?igsh=Nmk2aG5qbjB5Y3l2" target="_blank">
-                  <!-- <img src="./public/Instagram_icon.png" alt=""/> -->
-                </a>
-            </div>
-          </div>
-
+        </div>
   
-          <div class="grid-item four flex-center">
-                        <!-- TEST ZA HORIZONTAL-->
-              <ul id="menu-list" class="menu-list">
-                <li>
-                    <button id="aboutBtn" class="btn about">
-                      about
-                    </button>
-                </li>
-                <li>
-                    <button id="worksBtn" class="btn works">
-                      works
-                    </button>
-                </li>
-                <li>
-                    <button class="btn contact">
-                      contact
-                    </button>
-                </li>
-              </ul>
+        <div id="aboutWrap" class="about-wrap flex-center">
+          <h2 class="about-wrap__title">justyna tasak</h2>
+          <div class="about-wrap__img-wrap">
+            <img src="/public/img/jt.jpeg" alt="jsutyna portrait"/>
           </div>
+          <div class="about-wrap__text-wrap">
+            <p>
+              Born and raised in Poland, I finished college of Fine Arts with Bachelor in Fashion Design. 
+              My interest in clothes was always present, 
+              but the real work in the industry started just before my college, when I was assistant for Yulia Babich in her atelier,
+              in Szczecin. The environment of clothes design was inspiring and made me fall in love with the fashion itself.
+            </p>
+          </div>
+  
+          <button id="about-close" class="btn about-close">
+            XXX
+          </button>
         </div>
-
+  
       </div>
 
-      <div id="aboutWrap" class="about-wrap flex-center">
-        <h2 class="about-wrap__title">justyna tasak</h2>
-        <div class="about-wrap__img-wrap">
-          <img src="/public/img/jt.jpeg" alt="jsutyna portrait"/>
-        </div>
-        <div class="about-wrap__text-wrap">
-          <p>
-            Born and raised in Poland, I finished college of Fine Arts with Bachelor in Fashion Design. 
-            My interest in clothes was always present, 
-            but the real work in the industry started just before my college, when I was assistant for Yulia Babich in her atelier,
-            in Szczecin. The environment of clothes design was inspiring and made me fall in love with the fashion itself.
-          </p>
-        </div>
-
-        <button id="about-close" class="btn about-close">
-          XXX
-        </button>
-      </div>
 
     </section>
 
-    <!-- ELEMENT U POZADINI WORKS WRAP, aktivira animaciju-->
+    <section class="lower flex-center">
 
-    <section class="cover-bg-wrap flex-center">
-
-      <section id="works" class="works grid wrapped-in">
+      <div id="works" class="content-card works grid wrapped-in">
 
         <button id="backBtn" class="back btn">
           gou bek
           <p>&uarr;</p>
         </button>
-
+  
         <div class="preview-wrap">
           <div id="gallery-wrap" class="gallery-wrap">
-
+  
             <div id="track" class="track">
-
+  
               <!-- ako nema src elementata, poremeti se width od works sekcije -->
   
               <figure class="gallery-wrap__item" tabindex="0">
@@ -150,7 +145,7 @@
                 <img class="item__img" src="" alt=""/>
                 <figcaption class="preview-info"></figcaption>
               </figure>
-
+  
               <figure class="gallery-wrap__item" tabindex="0">
                 <img class="item__img" src="" alt=""/>
                 <figcaption class="preview-info"></figcaption>
@@ -160,7 +155,7 @@
                 <img class="item__img" src="" alt=""/>
               </figure>
             </div>
-
+  
           </div>
         </div>
   
@@ -187,7 +182,7 @@
         </div>
   
         <div class="nav-wrap">
-
+  
           <button id="nav-works" class="btn nav-works">sssrlrct module
           </button>
   
@@ -214,12 +209,9 @@
             </li>
           </ul>
         </div>
-        </section>
+      </div>
     </section>
 
-    <!-- <section id="about" class="about">
-        <p class="about__title">a_b_o_u_t</p>
-    </section> -->
 
   </main>
 
