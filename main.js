@@ -55,7 +55,9 @@ const worksBtn = document.getElementById("worksBtn");
 const worksWrap = document.getElementById("works");
 const menuWrap = document.getElementById("menuWrap");
 const backBtn = document.getElementById("backBtn");
+const contactBtn = document.getElementById("contactBtn");
 const contactWrap = document.querySelector(".contact-wrap");
+const contactWrapList = document.querySelector(".contact-wrap__list");
 const overlayTitle = document.getElementById("overlay-title");
 
 // GRID ITEMS
@@ -111,6 +113,10 @@ worksBtn.addEventListener("click", () => {
 
 backBtn.addEventListener("click", () => {
   menuWrap.classList.remove("no-height");
+});
+
+contactBtn.addEventListener("click", () => {
+  contactWrapList.classList.toggle("visible");
 });
 
 //WORKS WRAP FUNCTIONALITY
