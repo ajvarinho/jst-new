@@ -206,17 +206,31 @@ section {
     background: var(--bg-linear-3);
     transition-duration: 1.5s;
     transform: translateX(0%);
+    /**/
+    border-radius: 0 16em 20em 10em;
 }
 
 /* CONTACT */
 
 .contact-wrap {
-    grid-column-start: 1;
+    /* grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 4;
+    grid-row-end: 5; */
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
     grid-row-end: 5;
     border: .5em dashed chartreuse;
     box-shadow: inset .5em .5em 1em blueviolet;
+    /**/
+    background: transparent;
+    border-radius: 2em 0 5em 0;
+    /* background-image: url(/public/img/paintings/rnd.png);
+        background-repeat: no-repeat;
+        background-position-x: -127px;
+        background-position-y: -282px;
+        border-radius: 2em 5em; */
 }
 
 .contact-wrap > .img-small {
