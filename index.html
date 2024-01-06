@@ -99,9 +99,9 @@
         </div>
   
         <div id="aboutWrap" class="about-wrap flex-center">
-          <h2 class="about-wrap__title">justyna tasak</h2>
+          <button class="about-wrap__title">justyna tasak</button>
           <div class="about-wrap__img-wrap">
-            <img src="/public/img/jt.jpeg" alt="jsutyna portrait"/>
+            <img id="justyna-img" class="justyna-img" src="/public/img/jt.jpeg" alt="jsutyna portrait"/>
           </div>
           <div class="about-wrap__text-wrap">
             <p>
@@ -134,7 +134,7 @@
         <div class="preview-wrap">
           <div id="gallery-wrap" class="gallery-wrap">
   
-            <div id="track" class="track">
+            <div id="track" class="gallery">
   
               <!-- ako nema src elementata, poremeti se width od works sekcije -->
   
@@ -165,6 +165,7 @@
   
               <figure class="gallery-wrap__item" tabindex="0">
                 <img class="item__img" src="" alt=""/>
+                <figcaption class="preview-info"></figcaption>
               </figure>
             </div>
   
@@ -183,9 +184,8 @@
               <p id="overlay-title">a</p>
             </div>
             <div>
-              
+              <img id="active-img" class="active-img" src="" alt=""/>
             </div>
-            <img id="active-img" class="active-img" src="" alt=""/>
             <div class="overlay">
               <div class="active-img__title"></div>
               <div class="active-img__desc"></div>

@@ -86,6 +86,9 @@ const welcomeEl = document.querySelector(".cover");
 
 const previewInfoEl = [...document.querySelectorAll(".preview-info")];
 
+const aboutTitle = document.querySelector(".about-wrap__title");
+const aboutImg = document.getElementById("justyna-img");
+
 // ANIMACIJE INTRO
 
 const aboutClose = document.getElementById("about-close");
@@ -102,9 +105,13 @@ aboutBtn.addEventListener("click", () => {
   aboutWrap.classList.add("about-wrap-test__open");
 });
 
-aboutWrap.addEventListener("click", () => {
+aboutClose.addEventListener("click", () => {
   aboutWrap.classList.remove("about-wrap-test__open");
   aboutWrap.classList.add("about-wrap");
+});
+
+aboutTitle.addEventListener("click", () => {
+  aboutImg.classList.toggle("active");
 });
 
 worksBtn.addEventListener("click", () => {
@@ -165,13 +172,13 @@ previewImages.forEach((image, index) => {
 const figureElArr = [...document.querySelectorAll("figure")];
 
 figureElArr.forEach((image, index) => {
-  image.addEventListener("mouseenter", (event) => {
+  image.addEventListener("click", (event) => {
     let test = event.target;
-    test.querySelector(".preview-info").innerText = paintings[index].title;
+    //test.querySelector(".preview-info").innerText = paintings[index].title;
     test.querySelector(".preview-info").style.opacity = 1;
   });
-  image.addEventListener("mouseleave", (event) => {
-    let test = event.target;
-    test.querySelector(".preview-info").style.opacity = 0;
-  });
+  // image.addEventListener("mouseleave", (event) => {
+  //   let test = event.target;
+  //   test.querySelector(".preview-info").style.opacity = 0;
+  // });
 });
