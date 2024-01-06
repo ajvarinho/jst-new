@@ -641,6 +641,7 @@ box-shadow: inset 0px 0px 10px blue;
 
     .content-card {
         padding: 0;
+        overflow: hidden;
     }
 
     .cover {
