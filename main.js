@@ -162,6 +162,7 @@ previewImages.forEach((image, index) => {
   image.addEventListener("click", (event) => {
     let test = event.target;
     let imageSrc = image.src;
+    console.log(imageSrc);
     imgPreviewEl.src = imageSrc;
     overlayTitle.innerText = paintings[index].title;
   });
