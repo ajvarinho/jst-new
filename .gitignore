@@ -24,6 +24,4 @@ dist-ssr
 *.sw?
 
 # test
-
-sporko.html
 style-sporko.css

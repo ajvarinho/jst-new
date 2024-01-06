@@ -203,13 +203,15 @@ section {
 }
 
 .about-close {
+    color: black;
+    font-size: 1.3em;
     border: .5em solid rgba(68, 124, 229, .7);
     position: absolute;
     top: 0;
     right: 0;
     height: 20%;
     width: 40%;
-    background: rgba(255, 165, 0.7);
+    text-align: center;
 }
 
 .about-wrap-test__open {
@@ -510,7 +512,7 @@ box-shadow: inset 0px 0px 10px blue;
   
 
 .works {
-    background: rgb(101, 189, 101);
+    background: var(--justyna-mix);
     color: white;
     font-family: monospace;
 }
@@ -654,7 +656,8 @@ box-shadow: inset 0px 0px 10px blue;
         }
 
         .cover__img {
-            border: 2em dotted blue;
+            border: 1em dotted aliceblue;
+            border-radius: 14em 0 0 0;
         }
     }
 
@@ -691,7 +694,6 @@ box-shadow: inset 0px 0px 10px blue;
                 grid-row-start: 3;
                 grid-row-end: 4;
                 border: .2em solid violet;
-                background: greenyellow;
                 /* z-index: 20; */
                 box-shadow: inset .1em .2em 3em white;
                 border-radius: 2em 0 0 0;
@@ -719,15 +721,19 @@ box-shadow: inset 0px 0px 10px blue;
         position: absolute;
         top: 0;
         right: 0;
-        height: 20%;
-        width: 40%;
-        background: orange;
+        height: 12%;
+        width: 20%;
+        background: var(--bg-linear-1);
+        border-radius: 0 0 0 14em;
     }
 
     .works.grid {
 
         .back.btn {
+            color: white;
             border: .2em solid blue;
+            background: var(--bg-linear-1);
+            border-radius: 0 0 0 14em;
         }
 
         .preview-wrap {
@@ -741,7 +747,6 @@ box-shadow: inset 0px 0px 10px blue;
         .gallery-wrap {
             height: 100%;
             overflow: scroll;
-
         }
 
         .gallery {
@@ -749,7 +754,6 @@ box-shadow: inset 0px 0px 10px blue;
             height: 100%;
             width: 100%;
             border: 5px solid;
-
             scroll-snap-type: x mandatory;
             display: flex;
             -webkit-overflow-scrolling: touch;
@@ -757,13 +761,10 @@ box-shadow: inset 0px 0px 10px blue;
         }
 
         .gallery-wrap__item {
-            /* height: 100%;
-            width: 100%; */
             padding: .5em;
             border: 2px solid;
             scroll-snap-align: start;
             min-width: 100vw;
-
             scroll-snap-align: start;
             text-align: center;
             position: relative;
@@ -784,8 +785,6 @@ box-shadow: inset 0px 0px 10px blue;
             grid-row-start: 2;
             grid-row-end: 4;
         }
-
-
 
         .nav-wrap {
             border: .2em solid blue;
