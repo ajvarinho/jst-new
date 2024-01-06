@@ -635,7 +635,7 @@ box-shadow: inset 0px 0px 10px blue;
     }
 }
 
-@media (max-width: 30em) {
+@media (max-width: 35em) {
 
     body {
         background-color:#630865;
