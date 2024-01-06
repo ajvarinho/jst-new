@@ -412,7 +412,7 @@ section {
     content: '';
     position: absolute;
     inset: 0 0 0 50%;
-    background-image: url('/public/img/paintings/2.png');
+    background-image: url('./public/img/paintings/2.png');
     background-repeat: no-repeat;
     z-index: -1;
     animation: align 1s linear;

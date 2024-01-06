@@ -1,32 +1,32 @@
 const paintings = [
   {
-    src: "/public/img/paintings/1.jpg",
+    src: "./public/img/paintings/1.jpg",
     alt: "",
     title: "test jedan",
     info: "",
   },
-  { src: "/public/img/paintings/2.jpg", alt: "", title: "test alo", info: "" },
+  { src: "./public/img/paintings/2.jpg", alt: "", title: "test alo", info: "" },
   {
     src: "/public/img/paintings/3.jpg",
     alt: "",
     title: "test jebo majku ",
     info: "",
   },
-  { src: "/public/img/paintings/4.jpg", alt: "", title: "sfax", info: "" },
+  { src: "./public/img/paintings/4.jpg", alt: "", title: "sfax", info: "" },
   {
-    src: "/public/img/paintings/5.jpg",
+    src: "./public/img/paintings/5.jpg",
     alt: "",
     title: "olimpik marsej",
     info: "",
   },
   {
-    src: "/public/img/paintings/6.jpg",
+    src: "./public/img/paintings/6.jpg",
     alt: "",
     title: "test jedan",
     info: "",
   },
   {
-    src: "/public/img/paintings/7.jpg",
+    src: "./public/img/paintings/7.jpg",
     alt: "",
     title: "test jedan",
     info: "",
@@ -34,13 +34,13 @@ const paintings = [
 ];
 
 const design = [
-  { src: "/public/img/design/1.jpg", alt: "", title: "", info: "" },
-  { src: "/public/img/design/2.jpg", alt: "", title: "", info: "" },
-  { src: "/public/img/design/3.jpg", alt: "", title: "", info: "" },
-  { src: "/public/img/design/4.jpg", alt: "", title: "", info: "" },
-  { src: "/public/img/design/5.jpg", alt: "", title: "", info: "" },
-  { src: "/public/img/design/6.jpg", alt: "", title: "", info: "" },
-  { src: "/public/img/design/7.jpg", alt: "", title: "", info: "" },
+  { src: "./public/img/design/1.jpg", alt: "", title: "", info: "" },
+  { src: "./public/img/design/2.jpg", alt: "", title: "", info: "" },
+  { src: "./public/img/design/3.jpg", alt: "", title: "", info: "" },
+  { src: "./public/img/design/4.jpg", alt: "", title: "", info: "" },
+  { src: "./public/img/design/5.jpg", alt: "", title: "", info: "" },
+  { src: "./public/img/design/6.jpg", alt: "", title: "", info: "" },
+  { src: "./public/img/design/7.jpg", alt: "", title: "", info: "" },
 ];
 
 const headerBtn = document.getElementById("menu-btn");
