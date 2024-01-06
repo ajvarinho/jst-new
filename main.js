@@ -1,5 +1,3 @@
-import "./style.css";
-
 const paintings = [
   {
     src: "/public/img/paintings/1.jpg",
