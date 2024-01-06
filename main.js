@@ -1,6 +1,6 @@
 const paintings = [
   {
-    src: "./public/img/paintings/1.jpg",
+    src: "/jst-new" + "./public/img/paintings/1.jpg",
     alt: "",
     title: "test jedan",
     info: "",
