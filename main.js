@@ -5,7 +5,7 @@ const paintings = [
     title: "test jedan",
     info: "",
   },
-  { src: "./public/img/paintings/2.jpg", alt: "", title: "test alo", info: "" },
+
   {
     src: "./public/img/paintings/3.jpg",
     alt: "",
@@ -34,13 +34,13 @@ const paintings = [
 ];
 
 const design = [
-  { src: "/public/img/design/1.jpg", alt: "", title: "", info: "" },
-  { src: "./public/img/design/2.jpg", alt: "", title: "", info: "" },
-  { src: "./public/img/design/3.jpg", alt: "", title: "", info: "" },
-  { src: "./public/img/design/4.jpg", alt: "", title: "", info: "" },
-  { src: "./public/img/design/5.jpg", alt: "", title: "", info: "" },
-  { src: "./public/img/design/6.jpg", alt: "", title: "", info: "" },
-  { src: "./public/img/design/7.jpg", alt: "", title: "", info: "" },
+  { src: "/jst-new/public/img/design/1.jpg", alt: "", title: "", info: "" },
+  { src: "/jst-new//public/img/design/2.jpg", alt: "", title: "", info: "" },
+  { src: "/jst-new//public/img/design/3.jpg", alt: "", title: "", info: "" },
+  { src: "/jst-new//public/img/design/4.jpg", alt: "", title: "", info: "" },
+  { src: "/jst-new//public/img/design/5.jpg", alt: "", title: "", info: "" },
+  { src: "/jst-new//public/img/design/6.jpg", alt: "", title: "", info: "" },
+  { src: "/jst-new//public/img/design/7.jpg", alt: "", title: "", info: "" },
 ];
 
 const headerBtn = document.getElementById("menu-btn");
