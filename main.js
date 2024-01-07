@@ -58,6 +58,10 @@ const contactWrap = document.querySelector(".contact-wrap");
 const contactWrapList = document.querySelector(".contact-wrap__list");
 const overlayTitle = document.getElementById("overlay-title");
 
+//
+const welcomeBtn = document.getElementById("welcomeBtn");
+const welcomeEl = document.querySelector(".cover");
+
 // GRID ITEMS
 
 const gridItemOne = document.querySelector(".grid-item.one");
@@ -79,13 +83,33 @@ const sculptureBtn = document.getElementById("nav_sculpture");
 const exhibitionsBtn = document.getElementById("nav_exhibition");
 const designBtn = document.getElementById("nav_design");
 
-const welcomeBtn = document.getElementById("welcomeBtn");
-const welcomeEl = document.querySelector(".cover");
+//
+const closeActiveImg = document.getElementById("close-active");
+const displayActiveImg = document.querySelector(".display");
 
 const previewInfoEl = [...document.querySelectorAll(".preview-info")];
 
 const aboutTitle = document.querySelector(".about-wrap__title");
 const aboutImg = document.getElementById("justyna-img");
+
+// set mobile grid to preview
+const galleryEl = document.querySelector(".gallery");
+
+function getSize() {
+  let myWidth = 0,
+    myHeight = 0;
+  if (typeof window.innerWidth == "number") {
+    //Non-IE
+    //http://www.howtocreate.co.uk/tutorials/javascript/browserwindow
+    myWidth = window.innerWidth;
+    myHeight = window.innerHeight;
+  }
+  if (myWidth <= 375) {
+    galleryEl.classList.add("mobile");
+  }
+}
+
+getSize();
 
 // ANIMACIJE INTRO
 
@@ -161,11 +185,22 @@ designBtn.addEventListener("click", () => {
 
 previewImages.forEach((image, index) => {
   image.addEventListener("click", (event) => {
+    console.log("c;olick");
     let test = event.target;
     let imageSrc = image.src;
     console.log("test src", imageSrc);
     imgPreviewEl.src = imageSrc;
     overlayTitle.innerText = paintings[index].title;
+    displayActiveImg.classList.remove("hide");
+    displayActiveImg.classList.add("show");
+  });
+});
+
+previewImages.forEach((image, index) => {
+  image.addEventListener("click", (event) => {
+    console.log("a;loooooooooooooooo");
+    displayActiveImg.classList.remove("hide");
+    displayActiveImg.classList.add("show");
   });
 });
 
@@ -181,4 +216,9 @@ figureElArr.forEach((image, index) => {
   //   let test = event.target;
   //   test.querySelector(".preview-info").style.opacity = 0;
   // });
+});
+
+closeActiveImg.addEventListener("click", () => {
+  displayActiveImg.classList.remove("show");
+  displayActiveImg.classList.add("hide");
 });

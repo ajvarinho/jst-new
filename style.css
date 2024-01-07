@@ -585,17 +585,47 @@ box-shadow: inset 0px 0px 10px blue;
     grid-row-start: 2;
     grid-row-end: end;
     border: 1px solid rgb(51, 141, 19);
+    position: relative;
+    transition-duration: 1s;
 }
 
 .active-image-wrap {
     position: relative;
+    height: 100%;
+    border: 5px dotted blue;
+}
+
+.show {
+    transform: translateX(0%);
+}
+.hide {
+    transform: translateX(-100%)
 }
 
 .overlay {
     position: absolute;
-    inset: 0;
+    top: 80%;
+    left: 0;
+    bottom: 0;
+    right: 0;
     background: grey;
-    opacity: 0.5;
+    /* opacity: 0.5; */
+}
+
+.active-img__title {
+    font-size: 1.4em;
+    line-height: 1.5em;
+    color: orange;
+}
+
+.active-img__desc {
+    
+}
+
+.testni {
+    height: 4em;
+    width: 4em;
+    animation: shake2 1s linear infinite;
 }
 
 @keyframes shake {
@@ -746,7 +776,9 @@ box-shadow: inset 0px 0px 10px blue;
             border: .2em solid rgb(205, 20, 211);
             grid-column-start: 1;
             grid-column-end: 5;
-            grid-row-start: 4;
+            /* grid-row-start: 4; */
+            /*za card layout*/
+            grid-row-start: 2;
             grid-row-end: end;
         }
 
@@ -766,11 +798,19 @@ box-shadow: inset 0px 0px 10px blue;
             overflow-x: scroll;
         }
 
+        .mobile {
+            display: grid;
+            grid-template-columns: repeat(2 , 50%);
+            grid-template-rows: repeat(4, 1fr);
+            column-gap: 0.5em;
+            row-gap: 0.5em;
+        }
+
         .gallery-wrap__item {
+            cursor: pointer;
             padding: .5em;
-            border: 2px solid;
             scroll-snap-align: start;
-            min-width: 100vw;
+            /* min-width: 100vw; */
             scroll-snap-align: start;
             text-align: center;
             position: relative;
@@ -788,11 +828,11 @@ box-shadow: inset 0px 0px 10px blue;
         }
 
         .display{
-            border: .2em solid rgb(205, 20, 211);
+            border: 2em solid rgb(205, 20, 211);
             grid-column-start: 1;
             grid-column-end: 5;
             grid-row-start: 2;
-            grid-row-end: 4;
+            grid-row-end: end;
         }
 
         .nav-wrap {
