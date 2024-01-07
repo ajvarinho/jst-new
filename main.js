@@ -73,6 +73,8 @@ const gridItemFour = document.querySelector(".grid-item.four");
 const previewImages = [...document.querySelectorAll(".item__img")];
 const imgPreviewEl = document.querySelector("#active-img");
 
+console.log(imgPreviewEl);
+
 // works navigation
 
 const menuBtn = document.getElementById("nav-works");
@@ -93,9 +95,10 @@ const aboutTitle = document.querySelector(".about-wrap__title");
 const aboutImg = document.getElementById("justyna-img");
 
 // set mobile grid to preview
-const galleryEl = document.querySelector(".gallery");
+const galleryEl = document.getElementById("gallery");
 
 function getSize() {
+  console.log("aloo");
   let myWidth = 0,
     myHeight = 0;
   if (typeof window.innerWidth == "number") {
@@ -103,8 +106,10 @@ function getSize() {
     //http://www.howtocreate.co.uk/tutorials/javascript/browserwindow
     myWidth = window.innerWidth;
     myHeight = window.innerHeight;
+    console.log(myHeight, myWidth);
   }
-  if (myWidth <= 375) {
+  if (myWidth <= 400) {
+    console.log(galleryEl, "gallery");
     galleryEl.classList.add("mobile");
   }
 }
