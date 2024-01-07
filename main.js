@@ -108,7 +108,7 @@ function getSize() {
     myHeight = window.innerHeight;
     console.log(myHeight, myWidth);
   }
-  if (myWidth <= 400) {
+  if (myWidth <= 500) {
     console.log(galleryEl, "gallery");
     galleryEl.classList.add("mobile");
   }
