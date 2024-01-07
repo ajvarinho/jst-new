@@ -1,26 +1,26 @@
 const paintings = [
   {
-    src: "/public/img/paintings/1.jpg",
+    src: "./public/img/paintings/1.jpg",
     alt: "",
     title: "test jedan",
     info: "",
   },
-  { src: "/public/img/paintings/2.jpg", alt: "", title: "test alo", info: "" },
+  { src: "./public/img/paintings/2.jpg", alt: "", title: "test alo", info: "" },
   {
-    src: "/public/img/paintings/3.jpg",
+    src: "./public/img/paintings/3.jpg",
     alt: "",
-    title: "test jebo majku ",
+    title: "test ",
     info: "",
   },
-  { src: "/public/img/paintings/4.jpg", alt: "", title: "sfax", info: "" },
+  { src: "./public/img/paintings/4.jpg", alt: "", title: "sfax", info: "" },
   {
-    src: "/public/img/paintings/5.jpg",
+    src: "./public/img/paintings/5.jpg",
     alt: "",
-    title: "olimpik marsej",
+    title: "test",
     info: "",
   },
   {
-    src: "/public/img/paintings/6.jpg",
+    src: "./public/img/paintings/6.jpg",
     alt: "",
     title: "test jedan",
     info: "",
@@ -131,6 +131,7 @@ contactBtn.addEventListener("click", () => {
  */
 
 const test = (array) => {
+  console.log("test fn");
   const arrSrc = [];
   array.forEach((source) => {
     arrSrc.push(source.src);
