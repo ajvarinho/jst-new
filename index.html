@@ -4,248 +4,74 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./public/img/paintings/1.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
     <link href="style.css" rel="stylesheet">
     <title>JUSTYNA</title>
   </head>
   <body>
-  <main id="main">
+    <h1>justyna tasak</h1>
 
-    <section class="upper">
-
-      <div class="cover content-card">
-        <button id="welcomeBtn" class="btn cover__btn">JUSTYNA TASAK</button>
-        <div class="cover__img">
-          <picture>
-            <source srcset="./public/img/design/2.jpg" media="((max-width: 600px))" />
-            <img src="./public/img/paintings/9.jpg" alt="" />
-          </picture>
-        </div>
-        <div class="cover__img--mobile">
-          <div class="test"></div>
-        </div>
-      </div>
-
-      <div id="menuWrap" class="content-card start-wide">
-
-        <div class="grid-wrap">
-
-          <div id="intro" class="grid-wrap__intro grid">
-  
-            <div class="grid-item one">
-              <div class="test">
-                <p>JUS</p>
-              </div>
-              <div class="test">
-                <p>TY</p>
-              </div>
-              <div class="test">
-                <p>NA</p>
-              </div>
-              <div class="test">
-                <p>TA</p>
-              </div>
-              <div class="test">
-                <p>SAK</p>
-              </div>
-            </div>
-            
-            <div class="grid-item two">
-              <div class="img-small">
-                <img class="grid-item__img" src="./public/img/20230315_000518-removebg-preview.png" alt=""/>
-              </div>
-            </div>
-    
-            <div class="grid-item contact-wrap">
-              <div class="img-small">
-                <img class="grid-item__img" src="./public/img/20230315_000518-removebg-preview.png" alt=""/>
-              </div>
-              <div class="contact-wrap__list">
-                  <a href="https://www.instagram.com/justynka_tasak?igsh=Nmk2aG5qbjB5Y3l2" target="_blank">
-                    <!-- <img src="./public/Instagram_icon.png" alt=""/> -->
-                    haj ba klikni vamo
-                  </a>
-                  <a href="https://www.instagram.com/justynka_tasak?igsh=Nmk2aG5qbjB5Y3l2" target="_blank">
-                    <!-- <img src="./public/Instagram_icon.png" alt=""/> -->
-                    haj ba klikni vamo
-                  </a>
-                  <a href="https://www.instagram.com/justynka_tasak?igsh=Nmk2aG5qbjB5Y3l2" target="_blank">
-                    <!-- <img src="./public/Instagram_icon.png" alt=""/> -->
-                    haj ba klikni vamo
-                  </a>
-              </div>
-            </div>
-  
-            <div class="grid-item four flex-center">
-                <ul id="menu-list" class="menu-list">
-                  <li>
-                      <button id="aboutBtn" class="btn about">
-                        about
-                      </button>
-                  </li>
-                  <li>
-                      <button id="worksBtn" class="btn works">
-                        works
-                      </button>
-                  </li>
-                  <li>
-                      <button id="contactBtn" class="btn contact">
-                        contact
-                      </button>
-                  </li>
-                </ul>
-            </div>
-
-          </div>
-  
-        </div>
-  
-        <div id="aboutWrap" class="about-wrap flex-center">
-          <button class="about-wrap__title">justyna tasak</button>
-          <div class="about-wrap__img-wrap">
-            <img id="justyna-img" class="justyna-img" src="./public/img/jt.jpeg" alt="jsutyna portrait"/>
-          </div>
-          <div class="about-wrap__text-wrap">
-            <p>
-              Born and raised in Poland, I finished college of Fine Arts with Bachelor in Fashion Design. 
-              My interest in clothes was always present, 
-              but the real work in the industry started just before my college, when I was assistant for Yulia Babich in her atelier,
-              in Szczecin. The environment of clothes design was inspiring and made me fall in love with the fashion itself.
-            </p>
-          </div>
-  
-          <button id="about-close" class="btn about-close">
-            X
-          </button>
-        </div>
-  
-      </div>
-
-
-    </section>
-
-    <section class="lower flex-center">
-
-      <div id="works" class="content-card works grid wrapped-in">
-
-        <button id="backBtn" class="back btn">
-          gou bek
-          <p>&uarr;</p>
-        </button>
-  
-        <div class="preview-wrap">
-          <div id="gallery-wrap" class="gallery-wrap">
-  
-            <div id="gallery" class="gallery">
-  
-              <!-- ako nema src elementata, poremeti se width od works sekcije -->
-  
-              <figure class="gallery-wrap__item" tabindex="0">
-                  <img class="item__img" src="" alt=""/>
-                  <figcaption class="preview-info"></figcaption>
-              </figure>
-  
-              <figure class="gallery-wrap__item" tabindex="0">
-                  <img class="item__img" src="" alt=""/>
-                  <figcaption class="preview-info">a</figcaption>
-              </figure>
-  
-              <figure class="gallery-wrap__item" tabindex="0">
-                <img class="item__img" src="" alt=""/>
-                <figcaption class="preview-info">aa</figcaption>
-              </figure>
-  
-              <figure class="gallery-wrap__item" tabindex="0">
-                <img class="item__img" src="" alt=""/>
-                <figcaption class="preview-info"></figcaption>
-              </figure>
-  
-              <figure class="gallery-wrap__item" tabindex="0">
-                <img class="item__img" src="" alt=""/>
-                <figcaption class="preview-info"></figcaption>
-              </figure>
-  
-              <figure class="gallery-wrap__item" tabindex="0">
-                <img class="item__img" src="" alt=""/>
-                <figcaption class="preview-info"></figcaption>
-              </figure>
-
-              <figure class="gallery-wrap__item" tabindex="0">
-                <img class="item__img" src="" alt=""/>
-                <figcaption class="preview-info"></figcaption>
-              </figure>
-
-              <figure class="gallery-wrap__item" tabindex="0">
-                <img class="item__img" src="" alt=""/>
-                <figcaption class="preview-info"></figcaption>
-              </figure>
-
-              
-            </div>
-  
-          </div>
-        </div>
-  
-        <div class="module-wrap">
-          <p>module selected:</p>
-          <p id="active-module"></p>
-        </div>
-  
-        <div id="display" class="display hide">
-  
-          <div class="active-image-wrap">
-            <!-- <div class="flex-center">
-              <p id="overlay-title">a</p>
-            </div> -->
-            <div>
-              <img id="active-img" class="active-img" src="" alt=""/>
-            </div>
-            <div class="overlay">
-              <button id="close-active" class="btn close-active">
-                ma bjaazi
-              </button>
-              <div class="active-img__title">
-                plejsholda text
-              </div>
-              <div class="active-img__desc">
-                plejsholda text description
-              </div>
-              <div class="testni"></div>
-            </div>
-          </div>
-        </div>
-  
-        <div class="nav-wrap">
-  
-          <button id="nav-works" class="btn nav-works">sssrlrct module
-          </button>
-  
-          <ul class="nav__wrap">
+    <section class="intro">
+    <div class="intro-wrap">
+      <!-- <div class="test-wrap"></div> -->
+      <div id="canvas-wrap"></div>
+      <div class="nav-wrap">
+        <nav class="nav">
+          <ul id="menu-list" class="menu-list">
             <li>
-              <div class="nav-wrap__btn">
-                <button id="nav_painting" class="btn">paintings</button>
-              </div>
+                <button id="aboutBtn" class="btn about">
+                  about
+                </button>
             </li>
             <li>
-              <div class="nav-wrap__btn">
-                <button id="nav_sculpture" class="btn">sculpture</button>
-              </div>
+                <button id="worksBtn" class="btn works">
+                  works
+                </button>
             </li>
             <li>
-              <div class="nav-wrap__btn">
-                <button id="nav_exhibition" class="btn">exhibitions</button>
-              </div>
-            </li>
-            <li>
-              <div class="nav-wrap__btn">
-                <button id="nav_design">design</button>
-              </div>
+                <button id="contactBtn" class="btn contact">
+                  contact
+                </button>
             </li>
           </ul>
-        </div>
+        </nav>
       </div>
-    </section>
+    </div>
+
+  </section>
 
 
+    <main>
+
+      <div class="container">
+          <div class="img-wrap">
+            <img src="./public/img/paintings/1.jpg" alt="">
+          </div>
+          <div class="img-wrap">
+            <img src="./public/img/paintings/2.png" alt="">
+          </div>
+          <div class="img-wrap">
+            <img src="./public/img/exhibitions/p1.jpg" alt="">
+          </div>
+          <div class="img-wrap">
+            <img src="" alt="">
+          </div>
+          <div class="img-wrap">
+            <img src="./public/img/design/3.jpg" alt="">
+          </div>
+          <div class="img-wrap">
+            <img src="./public/img/design/7.jpg" alt="">
+          </div>
+          <div class="img-wrap">
+            <img src="./assets/image(1).png" alt="">
+          </div>
+          <div class="img-wrap">
+            <img src="./public/img/paintings/6.jpg" alt="">
+          </div>
+          <div class="img-wrap">
+            <img src="./assets/uc-icon1.gif" alt="">
+          </div>
+      </div>
   </main>
 
     <script src="main.js"></script>
