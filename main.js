@@ -4,13 +4,23 @@ let particle_texture = null;
 // variable holding our particle system
 let ps = null;
 
+//test
+let bg;
+let bg2;
+let img;
+let vid;
+let theta = 0;
+
 function preload() {
   particle_texture = loadImage("./public/img/paintings/3.jpg");
+  bg = loadImage("./public/img/exhibitions/20231223_203843.jpg");
+  img = loadImage("./public/img/paintings/3.jpg");
+  bg2 = loadImage("/public/img/exhibitions/20231223_203805.jpg");
 }
 
 function setup() {
   //set the canvas size
-  let canvas = createCanvas(window.innerWidth / 2, window.innerHeight / 2);
+  let canvas = createCanvas(600, 500, WEBGL);
   canvas.parent("#canvas-wrap");
 
   //initialize our particle system
@@ -22,19 +32,42 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  clear();
+  background("rgba(255,255,255, 0)");
+  texture(img);
 
-  let dx = map(mouseX, 0, width, -0.2, 0.2);
-  let wind = createVector(dx, 0);
+  fill("rgba(100%, 0%, 100%, 0.5)");
+  box(10, 10, 10);
 
-  ps.applyForce(wind);
-  ps.run();
-  for (let i = 0; i < 2; i++) {
-    ps.addParticle();
-  }
+  rotateZ(theta * 0.1);
+  rotateX(theta * 0.1);
+  rotateY(theta * 0.1);
+  texture(img);
+  box(250, 250, 250);
+  //pop();
+  theta += 0.01;
 
-  // Draw an arrow representing the wind force
-  drawVector(wind, createVector(width / 2, 50, 0), 500);
+  rotateZ(theta * 0.1);
+  rotateX(theta * 0.1);
+  rotateY(theta * 0.1);
+  texture(bg);
+  box(50, 50, 50);
+  //pop();
+  theta += 0.01;
+
+  // let dx = map(mouseX, 0, width, -0.2, 0.2);
+  // let wind = createVector(dx, 0);
+
+  // ps.applyForce(wind);
+  // ps.run();
+  // for (let i = 0; i < 2; i++) {
+  //   ps.addParticle();
+  // }
+
+  // // Draw an arrow representing the wind force
+  // drawVector(wind, createVector(width / 2, 50, 0), 500);
+
+  //noLoop();
 }
 
 /**
@@ -120,8 +153,8 @@ ParticleSystem.prototype.addParticle = function () {
 let Particle = function (pos, img_) {
   this.loc = pos.copy();
 
-  let vx = randomGaussian() * 0.6;
-  let vy = randomGaussian() * 0.3 - 1.0;
+  let vx = randomGaussian() * 0.8;
+  let vy = randomGaussian() * 0.6 - 1.0;
 
   this.vel = createVector(vx, vy);
   this.acc = createVector();
