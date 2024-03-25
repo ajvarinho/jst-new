@@ -14,6 +14,10 @@
 
     /* filters */
     --filter-1: drop-shadow(1em 1em 20px rgba(100, 84, 243, 0.6)) contrast(200%);
+
+    /**/
+    --turnSpeed: 40s;
+    --speed: 300s;
 }
 
 * {
@@ -77,36 +81,12 @@ section {
 }
 
 h1 {
-    color: white;
-    position: fixed;
-    top: 2em;
-    z-index: 100;
+    color: rgb(48, 18, 222);
 }
-
-.intro-wrap {
-    height: 60vh;
-    position: relative;
-    /* display: flex;
-    justify-content: space-around; */
-    /* flex-direction: row-reverse; */
-    /* background-image: url('./public/img/exhibitions/20231223_203843.jpg'); */
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-/* #canvas-wrap{
-    border: 1px solid rgb(53, 53, 223);
-    height: fit-content;
-} */
 
 .nav-wrap {
     position: absolute;
     inset: 0;
-}
-
-.test-wrap {
-    border: 1px solid blue;
-    width: 10em;
 }
 
 /**/
@@ -135,8 +115,62 @@ section.room {
 .scene {
     position: relative;
     transform-style: preserve-3d;
+    /**/
+    animation:
+    sceneRotateLeft var(--turnSpeed) infinite linear,
+    sceneRotateRight var(--turnSpeed) infinite linear,
+    sceneMoveForward var(--speed) infinite linear,
+    sceneMoveBack var(--speed) infinite linear;
+    animation-play-state: paused, paused, paused, paused;
  }
 
+ /**/
+
+ @keyframes sceneRotateLeft {
+    to { transform: rotateY(-360deg); }
+       }
+ 
+   @keyframes sceneRotateRight {
+    to { transform: rotateY(360deg); }
+ }
+ 
+    @keyframes sceneMoveForward {
+    to { transform: translateZ(1000em); }
+ }
+ 
+ @keyframes sceneMoveBack {
+    to { transform: translateZ(-1000em); }
+ }
+
+ /**/
+ :target.turnLeft ~ .scene, #turnLeft:focus ~ .scene {
+    animation-play-state: running, paused, paused, paused;
+  }
+ 
+ :target.turnRight ~ .scene, #turnRight:focus ~ .scene {
+    animation-play-state: paused, running, paused, paused;
+  }
+ 
+ :target.moveBack ~ .scene, #moveBack:focus ~ .scene {
+    animation-play-state: paused, paused, paused, running;
+  }
+ 
+    :target.moveForward ~ .scene, #moveForward:focus ~ .scene {
+    animation-play-state: paused, paused, running, paused;
+  }
+ 
+ #moveForward, #turnLeft, #stop, #turnRight, #moveBack {
+    position: absolute;
+    left: -5000px;
+    top:-5000px;
+ }
+
+ /**/
+
+ #controls {
+    z-index: 100;
+    color: blue;
+ }
  /* #226097 */
 
  .ceiling, .frontWall, .leftWall, .rightWall {
@@ -166,14 +200,14 @@ section.room {
  .rightWall {
     transform: rotateY(90deg);
     left:0;
-    /* background-image:  url('./public/img/exhibitions/20231223_204015.jpg'); */
+    background-image:  url('./public/img/exhibitions/20231223_203805.jpg');
     background-color: rgb(255, 254, 253);
     border: 1px solid blue;
   }
 
   .floor {
     background-color: #000;
-    /* background-image:  url('./public/img/design/20231223_203946.jpg'); */
+    background-image:  url('./public/img/design/1.jpg');
     /* background-position:  1em 0, 1em 0, 0 0, 0 0;
     background-size: 5em 5em; */
     background-repeat: no-repeat;
