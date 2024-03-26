@@ -23,7 +23,7 @@ let imgSmallFour;
 
 function preload() {
   bg = loadImage("./public/img/exhibitions/20231223_203843.jpg");
-  bg2 = loadImage("/public/img/exhibitions/20231223_203805.jpg");
+  bg2 = loadImage("./public/img/exhibitions/20231223_203805.jpg");
   imgOne = loadImage("./public/img/paintings/rnd.png");
   imgTwo = loadImage("./public/img/paintings/8.jpg");
   imgThree = loadImage("./public/img/paintings/5-d2.jpg");
