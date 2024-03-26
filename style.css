@@ -42,7 +42,7 @@ body {
     font-size: 1.125rem;
     line-height: 1.2;
     overflow-x: hidden;
-    background-color: rgba(255, 107, 181, 0.5);
+    background-color: rgba(233, 214, 223, 0.5);
 }
 
 /* RESET */
@@ -69,6 +69,13 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+main {
+    min-height: 100vh;
+    position: relative;
+    margin-inline: auto;
+    overflow: hidden;
 }
 
 section {
@@ -117,3 +124,30 @@ section {
     line-height: 2em;
 }
 
+
+/**/
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .img-wrap {
+    background-color: #fff;
+    border: .2em solid #1515d8;
+  }
+  
+  .img-wrap img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+  }
+  
+  .img-wrap:nth-child(3n) {
+    grid-row: span 2;
+  }

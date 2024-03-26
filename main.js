@@ -49,13 +49,17 @@ function draw() {
   stroke("blue");
   ellipseMode(CORNER);
 
-  ellipse(600, 320, 350, 350);
-  ellipse(550, 320, 350, 350);
-  ellipse(500, 320, 350, 350);
-  ellipse(420, 290, 350, 350);
-  ellipse(370, 250, 350, 350);
-  ellipse(330, 220, 350, 350);
-  ellipse(370, 180, 350, 350);
+  //
+  ellipse(620, 270, 380, 380);
+  ellipse(600, 270, 380, 380);
+  //
+  ellipse(570, 270, 380, 380);
+  ellipse(520, 270, 380, 380);
+  ellipse(470, 270, 380, 380);
+  ellipse(420, 270, 380, 380);
+  ellipse(370, 250, 380, 380);
+  ellipse(330, 220, 380, 380);
+  ellipse(380, 180, 380, 380);
 
   //border
   ellipse(innerWidth / 4.5, 100, 382, 382);
