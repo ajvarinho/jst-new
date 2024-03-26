@@ -80,9 +80,10 @@ section {
     position: relative;
 }
 
-.title {
+.title-wrap {
     position: fixed;
-    top: 1.5em;
+    top: -1em;
+    width: 100%;
     font-size: 2em;
     text-align: center;
     color: blue;
@@ -96,11 +97,23 @@ section {
 }
 
 .nav-wrap {
-    height: 20em;
-    width: 20em;
+    height: fit-content;
+    width: 30em;
     color: blue;
-    position: absolute;
-    top: 50%;
-    left: 0;
+    position: relative;
+    top: 70%;
+    left: 20em;
     border: 1px solid blue;
 }
+
+.nav-list {
+    position: absolute;
+    z-index: 10;
+}
+
+.nav-item {
+    margin: .1em;
+    font-size: 2em;
+    line-height: 2em;
+}
+

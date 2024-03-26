@@ -16,8 +16,10 @@ let bg2;
 let imgOne;
 let imgTwo;
 let imgThree;
-let vid;
-let theta = 0;
+let imgSmallOne;
+let imgSmallTwo;
+let imgSmallThree;
+let imgSmallFour;
 
 function preload() {
   bg = loadImage("./public/img/exhibitions/20231223_203843.jpg");
@@ -25,6 +27,10 @@ function preload() {
   imgOne = loadImage("./public/img/paintings/rnd.png");
   imgTwo = loadImage("./public/img/paintings/8.jpg");
   imgThree = loadImage("./public/img/paintings/5-d2.jpg");
+  imgSmallOne = loadImage("./public/img/paintings/4-d1.jpg");
+  imgSmallTwo = loadImage("./public/img/paintings/5-d1.jpg");
+  imgSmallThree = loadImage("./public/img/paintings/4.jpg");
+  imgSmallFour = loadImage("./public/img/paintings/1.jpg");
 }
 
 function setup() {
@@ -36,18 +42,56 @@ function setup() {
 function draw() {
   background(255, 255, 255);
   fill(200);
+
+  //
+  image(imgSmallOne, 200, 100, 150, 100);
   strokeWeight(2);
   stroke("blue");
-  circle(250, 200, 250);
-  circle(260, 200, 250);
-  circle(270, 260, 250);
-  circle(280, 270, 250);
-  circle(300, 250, 250);
-  image(imgOne, 120, 120, 250, 250);
+  ellipseMode(CORNER);
+
+  ellipse(600, 320, 350, 350);
+  ellipse(550, 320, 350, 350);
+  ellipse(500, 320, 350, 350);
+  ellipse(420, 290, 350, 350);
+  ellipse(370, 250, 350, 350);
+  ellipse(330, 220, 350, 350);
+  ellipse(370, 180, 350, 350);
+
+  //border
+  ellipse(innerWidth / 4.5, 100, 382, 382);
+  image(imgOne, innerWidth / 4.5, 100, 380, 380);
 
   //
-  image(imgTwo, 520, 120, 250, 250);
+  strokeWeight(2);
+  stroke("blue");
+  rect(innerWidth / 2.9 + fractionWidth, 350, 250, 300);
+  rect(innerWidth / 3.1 + fractionWidth, 300, 250, 300);
+  rect(innerWidth / 3.2 + fractionWidth, 280, 250, 300);
+  rect(innerWidth / 3.3 + fractionWidth, 250, 250, 300);
+  rect(innerWidth / 3.7 + fractionWidth, 160, 250, 300);
 
   //
-  image(imgThree, 520, 520, 250, 250);
+  rect(innerWidth / 3.9 + fractionWidth, 140, 250, 300);
+  rect(innerWidth / 3.8 + fractionWidth, 130, 250, 300);
+  rect(innerWidth / 3.7 + fractionWidth, 120, 250, 300);
+  rect(innerWidth / 3.6 + fractionWidth, 110, 250, 300);
+  rect(innerWidth / 3.5 + fractionWidth, 100, 250, 300);
+  //
+  image(imgTwo, innerWidth / 3.5 + fractionWidth, 100, 250, 300);
+
+  //
+  rect(innerWidth / 3 + fractionWidth, 650, 300, 200);
+  rect(innerWidth / 3.1 + fractionWidth, 660, 300, 200);
+  rect(innerWidth / 3.3 + fractionWidth, 670, 300, 200);
+  rect(innerWidth / 3.5 + fractionWidth, 660, 300, 200);
+  rect(innerWidth / 3.7 + fractionWidth, 650, 300, 200);
+  rect(innerWidth / 3.7 + fractionWidth, 640, 300, 200);
+  //
+  image(imgThree, innerWidth / 3.7 + fractionWidth, 650, 300, 200);
+
+  image(imgSmallTwo, innerWidth - 300, 200, 150, 100);
+  image(imgSmallThree, 100, 600, 150, 200);
+
+  image(imgSmallFour, innerWidth - 200, 700, 150, 100);
+  noLoop();
 }
