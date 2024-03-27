@@ -2,13 +2,39 @@ console.log("alo");
 
 //test
 const introWrap = document.getElementById("intro-wrap");
-const introHeight = introWrap.offsetHeight;
-const introWidth = introWrap.offsetWidth;
+let introHeight = introWrap.offsetHeight;
+let introWidth = introWrap.offsetWidth;
+let newWidth;
+let percentageX;
+let percentageY;
+let percentageChangeX;
+let percentageChangeY;
 
 const fractionHeight = introHeight / 4;
 const fractionWidth = introWidth / 4;
 
-console.log(introHeight, introWidth, fractionHeight, fractionWidth);
+console.log("b4 re-sizin", introHeight, introWidth);
+
+//
+let init_x;
+let new_x;
+
+/**
+ * staviti listener unutar funkcije
+ * funkcija vraca newWidth i percentage
+ */
+
+const resized = window.addEventListener("resize", () => {
+  newWidth = introWrap.offsetWidth;
+  newHeight = introWrap.offsetHeight;
+  init_x = Math.round(innerWidth / 2.5 + 100);
+  percentageX = Math.round((newWidth / introWidth) * 100);
+  percentageY = Math.round((newHeight / introHeight) * 100);
+  percentageChangeX = 100 - percentageX;
+  percentageChangeY = 100 - percentageY;
+  new_x = Math.round(init_x - (percentageChangeX / 100) * init_x);
+  draw(new_x, percentageChangeX, percentageChangeY);
+});
 
 let pg;
 let bg;
@@ -37,63 +63,71 @@ function setup() {
   canvas.parent("#canvas-wrap");
 }
 
-function draw() {
+function draw(new_x, percentageChangeX, percentageChangeY) {
+  //Math.round(innerWidth / 2.5 + 100)
+  //const init_x =
+  let init_y = 270;
+  let init_rad = 380;
+  //
+  console.log("drawin ^ resizin for %", percentageChangeX, percentageChangeY);
+  console.log("rect x initial", init_x);
   background(255, 255, 255);
   fill(200);
-
   //
   image(imgSmallOne, 200, 100, 150, 100);
-  strokeWeight(2);
+  strokeWeight(1);
   stroke("blue");
   ellipseMode(CORNER);
-
   //
-  ellipse(620, 270, 380, 380);
-  ellipse(600, 270, 380, 380);
+  //ellipse(new_x, 270, 380, 380);
+  ellipse(innerWidth / 2.5 + 100, 270, 380, 380);
+  ellipse(innerWidth / 2.5 + 50, 270, 380, 380);
+  // //
+  ellipse(innerWidth / 2.5 - 50, 270, 380, 380);
+  ellipse(innerWidth / 2.5 - 100, 250, 380, 380);
+  ellipse(innerWidth / 2.5 - 130, 220, 380, 380);
+  ellipse(innerWidth / 2.5 - 150, 190, 380, 380);
   //
-  ellipse(570, 270, 380, 380);
-  ellipse(520, 270, 380, 380);
-  ellipse(470, 270, 380, 380);
-  ellipse(420, 270, 380, 380);
-  ellipse(370, 250, 380, 380);
-  ellipse(330, 220, 380, 380);
-  ellipse(380, 180, 380, 380);
+  ellipse(innerWidth / 2.5 - 70, 150, 380, 380);
 
-  //border
-  ellipse(innerWidth / 4.5, 100, 382, 382);
-  image(imgOne, innerWidth / 4.5, 100, 380, 380);
-
-  //
-  strokeWeight(2);
+  strokeWeight(1);
   stroke("blue");
-  rect(innerWidth / 2.9 + fractionWidth, 350, 250, 300);
-  rect(innerWidth / 3.1 + fractionWidth, 300, 250, 300);
-  rect(innerWidth / 3.2 + fractionWidth, 280, 250, 300);
-  rect(innerWidth / 3.3 + fractionWidth, 250, 250, 300);
-  rect(innerWidth / 3.7 + fractionWidth, 160, 250, 300);
+  //border
+  ellipse(innerWidth / 2.5 - 50, 100, 382, 382);
+  image(imgOne, innerWidth / 2.5 - 50, 100, 380, 380);
 
   //
-  rect(innerWidth / 3.9 + fractionWidth, 140, 250, 300);
-  rect(innerWidth / 3.8 + fractionWidth, 130, 250, 300);
-  rect(innerWidth / 3.7 + fractionWidth, 120, 250, 300);
-  rect(innerWidth / 3.6 + fractionWidth, 110, 250, 300);
-  rect(innerWidth / 3.5 + fractionWidth, 100, 250, 300);
+  strokeWeight(1);
+  stroke("blue");
+  //bilo 100
+  rect(innerWidth - (fractionWidth + 220), 350, 250, 300);
+  //test
+  rect(innerWidth - (fractionWidth + 260), 300, 250, 300);
+  rect(innerWidth - (fractionWidth + 280), 280, 250, 300);
+  rect(innerWidth - (fractionWidth + 300), 220, 250, 300);
+  rect(innerWidth - (fractionWidth + 310), 180, 250, 300);
   //
-  image(imgTwo, innerWidth / 3.5 + fractionWidth, 100, 250, 300);
-
+  rect(innerWidth - (fractionWidth + 315), 140, 250, 300);
+  rect(innerWidth - (fractionWidth + 305), 130, 250, 300);
+  rect(innerWidth - (fractionWidth + 295), 120, 250, 300);
+  rect(innerWidth - (fractionWidth + 285), 110, 250, 300);
+  rect(innerWidth - (fractionWidth + 275), 100, 250, 300);
   //
-  rect(innerWidth / 3 + fractionWidth, 650, 300, 200);
-  rect(innerWidth / 3.1 + fractionWidth, 660, 300, 200);
-  rect(innerWidth / 3.3 + fractionWidth, 670, 300, 200);
-  rect(innerWidth / 3.5 + fractionWidth, 660, 300, 200);
-  rect(innerWidth / 3.7 + fractionWidth, 650, 300, 200);
-  rect(innerWidth / 3.7 + fractionWidth, 640, 300, 200);
+  image(imgTwo, innerWidth - (fractionWidth + 275), 100, 250, 300);
   //
-  image(imgThree, innerWidth / 3.7 + fractionWidth, 650, 300, 200);
+  rect(innerWidth - (fractionWidth + 70), 700, 300, 200);
+  rect(innerWidth - (fractionWidth + 100), 710, 300, 200);
+  rect(innerWidth - (fractionWidth + 120), 700, 300, 200);
+  rect(innerWidth - (fractionWidth + 150), 690, 300, 200);
+  rect(innerWidth - (fractionWidth + 200), 680, 300, 200);
+  rect(innerWidth - (fractionWidth + 250), 670, 300, 200);
+  //bilo 250
+  rect(innerWidth - (fractionWidth + 320), 650, 300, 200);
+  image(imgThree, innerWidth - (fractionWidth + 320), 650, 300, 200);
 
-  image(imgSmallTwo, innerWidth - 300, 200, 150, 100);
-  image(imgSmallThree, 100, 600, 150, 200);
+  // image(imgSmallTwo, innerWidth - 300, 200, 150, 100);
+  // image(imgSmallThree, 100, 600, 150, 200);
 
-  image(imgSmallFour, innerWidth - 200, 700, 150, 100);
+  //image(imgSmallFour, innerWidth - 200, 700, 150, 100);
   noLoop();
 }
