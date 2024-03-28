@@ -18,6 +18,7 @@
 
 * {
     box-sizing: border-box;
+    border: 1px solid blue;
 }
   
 html {
@@ -40,7 +41,7 @@ body {
     /* font-family: 'Pixacao', sans-serif; */
     font-size: 1.125rem;
     line-height: 1.2;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     background-color: rgba(253, 250, 251, 0.5);
 }
 
@@ -89,25 +90,21 @@ section {
 .title-wrap {
     position: fixed;
     top: -1em;
-    width: 100%;
     font-size: 1.5em;
-    font-weight: lighter;
-    text-align: center;
     color: blue;
     z-index: 10;
 }
 
 .canvas-wrap {
     position: absolute;
-    top: 0;
-    left: -7%;
+    inset: 0;
 }
 
 .nav-wrap {
     color: blue;
     position: relative;
-    top: 70%;
-    left: 30%;
+    /* top: 70%;
+    left: 30%; */
 }
 
 .nav-list {
@@ -128,6 +125,42 @@ section {
 }
 
 /**/
+.info {
+    background-color: #6471e0;
+}
+
+.test-scroll {
+    height:fit-content;
+    display: flex;
+}
+
+.block {
+    display: inline-block;
+    height: 10em;
+    width: 50%;
+    background-color: violet;
+}
+
+.text {
+    font-size: 1em;
+    line-height: 1.5em;
+}
+.portrait {
+    height: 20em;
+    width: 20em;
+}
+
+
+.works-wrap {
+    position: relative;
+}
+
+.bg {
+
+    background-image: url('./public/img/exhibitions/20231223_203805.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -139,7 +172,14 @@ section {
   
   .img-wrap {
     background-color: #fff;
-    border: .2em solid #1515d8;
+    transform: scale(0.8);
+    transition-duration: .5s;
+  }
+
+  .img-wrap:hover {
+    cursor: pointer;
+    box-shadow: .2em .2em 1em .1em blue;
+    transform: scale(1);
   }
   
   .img-wrap img {
@@ -151,4 +191,37 @@ section {
   
   .img-wrap:nth-child(3n) {
     grid-row: span 2;
+  }
+
+
+  /**/
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1em;
+  }
+  
+  .item {
+    flex: 1 1 calc(33.33% - 20px); /* Adjust width of each item */
+    margin-bottom: 20px; /* Adjust vertical spacing between items */
+  }
+  
+  .img-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    height: auto;
+  }
+  
+  .img-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .item {
+      flex: 1 1 100%; /* Make each item take full width on smaller screens */
+    }
   }
