@@ -95,8 +95,15 @@ function handleCanvasResizing() {
   values.ellipseOne[0] = Math.round(
     init_x - (percentageChangeX / 100) * init_x
   );
-  new_y = Math.round(init_y - (percentageChangeY / 100) * init_y);
-  new_rad = Math.round(init_rad - (percentageChangeX / 100) * init_rad);
+  values.ellipseOne[1] = Math.round(
+    init_y - (percentageChangeY / 100) * init_y
+  );
+  values.ellipseOne[2] = Math.round(
+    init_rad - (percentageChangeX / 100) * init_rad
+  );
+  values.ellipseOne[3] = Math.round(
+    init_rad - (percentageChangeX / 100) * init_rad
+  );
   draw();
 }
 
