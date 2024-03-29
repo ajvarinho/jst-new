@@ -127,32 +127,32 @@ function draw() {
   strokeWeight(1);
   stroke("blue");
   //bilo 100
-  rect(innerWidth - (fractionWidth + 120), 350, 250, 300);
+  rect(innerWidth / 1.1 - (fractionWidth + 120), 350, 250, 300);
   //test
-  rect(innerWidth - (fractionWidth + 260), 300, 250, 300);
-  rect(innerWidth - (fractionWidth + 280), 280, 250, 300);
-  rect(innerWidth - (fractionWidth + 300), 220, 250, 300);
-  rect(innerWidth - (fractionWidth + 310), 180, 250, 300);
+  rect(innerWidth / 1.1 - (fractionWidth + 260), 300, 250, 300);
+  rect(innerWidth / 1.1 - (fractionWidth + 280), 280, 250, 300);
+  rect(innerWidth / 1.1 - (fractionWidth + 300), 220, 250, 300);
+  rect(innerWidth / 1.1 - (fractionWidth + 310), 180, 250, 300);
   //
-  rect(innerWidth - (fractionWidth + 315), 140, 250, 300);
-  rect(innerWidth - (fractionWidth + 305), 130, 250, 300);
-  rect(innerWidth - (fractionWidth + 295), 120, 250, 300);
-  rect(innerWidth - (fractionWidth + 285), 110, 250, 300);
-  rect(innerWidth - (fractionWidth + 275), 100, 250, 300);
+  rect(innerWidth / 1.1 - (fractionWidth + 315), 140, 250, 300);
+  rect(innerWidth / 1.1 - (fractionWidth + 305), 130, 250, 300);
+  rect(innerWidth / 1.1 - (fractionWidth + 295), 120, 250, 300);
+  rect(innerWidth / 1.1 - (fractionWidth + 285), 110, 250, 300);
+  rect(innerWidth / 1.1 - (fractionWidth + 275), 100, 250, 300);
 
   console.log(fractionWidth, "aaa");
   //bilko
-  image(imgTwo, innerWidth - (fractionWidth + 275), 100, 250, 300);
+  image(imgTwo, innerWidth / 1.1 - (fractionWidth + 275), 100, 250, 300);
   //
-  rect(innerWidth - (fractionWidth + 70), 700, 300, 200);
-  rect(innerWidth - (fractionWidth + 100), 710, 300, 200);
-  rect(innerWidth - (fractionWidth + 120), 700, 300, 200);
-  rect(innerWidth - (fractionWidth + 150), 690, 300, 200);
-  rect(innerWidth - (fractionWidth + 200), 680, 300, 200);
-  rect(innerWidth - (fractionWidth + 250), 670, 300, 200);
+  rect(innerWidth / 1.1 - (fractionWidth + 70), 700, 300, 200);
+  rect(innerWidth / 1.1 - (fractionWidth + 100), 710, 300, 200);
+  rect(innerWidth / 1.1 - (fractionWidth + 120), 700, 300, 200);
+  rect(innerWidth / 1.1 - (fractionWidth + 150), 690, 300, 200);
+  rect(innerWidth / 1.1 - (fractionWidth + 200), 680, 300, 200);
+  rect(innerWidth / 1.1 - (fractionWidth + 250), 670, 300, 200);
   //bilo 250
-  rect(innerWidth - (fractionWidth + 320), 650, 300, 200);
-  image(imgThree, innerWidth - (fractionWidth + 320), 650, 300, 200);
+  rect(innerWidth / 1.1 - (fractionWidth + 320), 650, 300, 200);
+  image(imgThree, innerWidth / 1.1 - (fractionWidth + 320), 650, 300, 200);
 
   image(imgSmallTwo, innerWidth - 300, 200, 150, 100);
   image(imgSmallThree, 100, 600, 150, 200);
