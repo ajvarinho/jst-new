@@ -36,6 +36,61 @@ const resized = window.addEventListener("resize", () => {
   draw(new_x, percentageChangeX, percentageChangeY);
 });
 
+const brickLeft = document.querySelector(".left.block");
+const brickRight = document.querySelector(".right.block");
+const mainTitleWrap = document.querySelector(".title-wrap");
+
+console.log(brickLeft, brickRight);
+let zoom = 1;
+const ZOOM_SPEED = 10;
+let lastScrollTop = 0;
+window.addEventListener("scroll", function (e) {
+  //console.log("lol scroll", e.deltaY);
+  //
+  let scrollTop = document.documentElement.scrollTop;
+  let scrollAmount = scrollTop - lastScrollTop;
+  lastScrollTop = scrollTop;
+
+  console.log(lastScrollTop);
+
+  console.log("Scroll amount:", scrollAmount);
+  if (scrollAmount > 0) {
+    brickLeft.classList.add("move-left");
+    brickRight.classList.add("move-right");
+    mainTitleWrap.classList.add("fade-out");
+  } else if (lastScrollTop < 500) {
+    brickLeft.classList.remove("move-left");
+    brickRight.classList.remove("move-right");
+    mainTitleWrap.classList.remove("fade-out");
+  }
+});
+
+// let lastScrollTop = 0;
+
+// document.addEventListener("scroll", function (e) {
+//   let scrollTop = document.documentElement.scrollTop;
+//   let scrollAmount = scrollTop - lastScrollTop;
+//   lastScrollTop = scrollTop;
+
+//   console.log("Scroll amount:", scrollAmount);
+
+//   if (scrollAmount > 0) {
+//     brickLeft.style.transform = `translateX(${(zoom -= ZOOM_SPEED)}px)`;
+//     //brickLeft.classList.add("move-left");
+//   } else {
+//     //brickLeft.classList.remove("move-left");
+//     brickLeft.style.transform = `translateX(${(zoom += ZOOM_SPEED)}px)`;
+//   }
+
+//   if (scrollAmount > 0) {
+//     brickRight.style.transform = `translateX(${(zoom += ZOOM_SPEED)}px)`;
+//   } else {
+//     brickRight.style.transform = `translateX(${(zoom -= ZOOM_SPEED)}px)`;
+//   }
+// });
+
+// p5.js stuff
+
 let pg;
 let bg;
 let bg2;
@@ -63,14 +118,7 @@ function setup() {
   canvas.parent("#canvas-wrap");
 }
 
-function draw(new_x, percentageChangeX, percentageChangeY) {
-  //Math.round(innerWidth / 2.5 + 100)
-  //const init_x =
-  let init_y = 270;
-  let init_rad = 380;
-  //
-  console.log("drawin ^ resizin for %", percentageChangeX, percentageChangeY);
-  console.log("rect x initial", init_x);
+function draw() {
   background(255, 255, 255);
   fill(200);
   //
@@ -80,27 +128,27 @@ function draw(new_x, percentageChangeX, percentageChangeY) {
   ellipseMode(CORNER);
   //
   //ellipse(new_x, 270, 380, 380);
-  ellipse(innerWidth / 2.5 + 100, 270, 380, 380);
-  ellipse(innerWidth / 2.5 + 50, 270, 380, 380);
+  ellipse(innerWidth / 3.5 + 100, 270, 380, 380);
+  ellipse(innerWidth / 3.5 + 50, 270, 380, 380);
   // //
-  ellipse(innerWidth / 2.5 - 50, 270, 380, 380);
-  ellipse(innerWidth / 2.5 - 100, 250, 380, 380);
-  ellipse(innerWidth / 2.5 - 130, 220, 380, 380);
-  ellipse(innerWidth / 2.5 - 150, 190, 380, 380);
+  ellipse(innerWidth / 3.5 - 50, 270, 380, 380);
+  ellipse(innerWidth / 3.5 - 100, 250, 380, 380);
+  ellipse(innerWidth / 3.5 - 130, 220, 380, 380);
+  ellipse(innerWidth / 3.5 - 150, 190, 380, 380);
   //
-  ellipse(innerWidth / 2.5 - 70, 150, 380, 380);
+  ellipse(innerWidth / 3.5 - 70, 150, 380, 380);
 
   strokeWeight(1);
   stroke("blue");
   //border
-  ellipse(innerWidth / 2.5 - 50, 100, 382, 382);
-  image(imgOne, innerWidth / 2.5 - 50, 100, 380, 380);
+  ellipse(innerWidth / 3.5 - 50, 100, 382, 382);
+  image(imgOne, innerWidth / 3.5 - 50, 100, 380, 380);
 
   //
   strokeWeight(1);
   stroke("blue");
   //bilo 100
-  rect(innerWidth - (fractionWidth + 220), 350, 250, 300);
+  rect(innerWidth - (fractionWidth + 120), 350, 250, 300);
   //test
   rect(innerWidth - (fractionWidth + 260), 300, 250, 300);
   rect(innerWidth - (fractionWidth + 280), 280, 250, 300);
@@ -112,7 +160,9 @@ function draw(new_x, percentageChangeX, percentageChangeY) {
   rect(innerWidth - (fractionWidth + 295), 120, 250, 300);
   rect(innerWidth - (fractionWidth + 285), 110, 250, 300);
   rect(innerWidth - (fractionWidth + 275), 100, 250, 300);
-  //
+
+  console.log(fractionWidth, "aaa");
+  //bilko
   image(imgTwo, innerWidth - (fractionWidth + 275), 100, 250, 300);
   //
   rect(innerWidth - (fractionWidth + 70), 700, 300, 200);
@@ -125,9 +175,9 @@ function draw(new_x, percentageChangeX, percentageChangeY) {
   rect(innerWidth - (fractionWidth + 320), 650, 300, 200);
   image(imgThree, innerWidth - (fractionWidth + 320), 650, 300, 200);
 
-  // image(imgSmallTwo, innerWidth - 300, 200, 150, 100);
-  // image(imgSmallThree, 100, 600, 150, 200);
+  image(imgSmallTwo, innerWidth - 300, 200, 150, 100);
+  image(imgSmallThree, 100, 600, 150, 200);
 
-  //image(imgSmallFour, innerWidth - 200, 700, 150, 100);
+  image(imgSmallFour, innerWidth - 200, 700, 150, 100);
   noLoop();
 }

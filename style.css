@@ -75,13 +75,6 @@ ul {
     padding: 0;
 }
 
-main {
-    min-height: 100vh;
-    position: relative;
-    margin-inline: auto;
-    overflow: hidden;
-}
-
 section {
     position: relative;
     height: 100vh;
@@ -90,9 +83,15 @@ section {
 .title-wrap {
     position: fixed;
     top: -1em;
+    left: 40%;
     font-size: 1.5em;
     color: blue;
     z-index: 10;
+    transition-duration: 1.5s;
+}
+
+.fade-out {
+    opacity: 0;
 }
 
 .canvas-wrap {
@@ -103,8 +102,9 @@ section {
 .nav-wrap {
     color: blue;
     position: relative;
-    /* top: 70%;
-    left: 30%; */
+    top: 70%;
+    left: 30%;
+    width: fit-content;
 }
 
 .nav-list {
@@ -126,19 +126,40 @@ section {
 
 /**/
 .info {
-    background-color: #6471e0;
+    background-color: #e8eaf6;
 }
 
 .test-scroll {
+    position: relative;
     height:fit-content;
     display: flex;
 }
 
 .block {
-    display: inline-block;
+    /* position: relative; */
     height: 10em;
     width: 50%;
-    background-color: violet;
+    /**/
+    display:grid;  
+    place-items:center;  
+    top:0;  
+    left:0;
+    background: linear-gradient(45deg, #6471e0, #041bef);
+    transition-duration: 2.5s;
+}
+
+.block:last-of-type {
+    background: linear-gradient(45deg, #041bef, #6471e0);
+}
+
+.move-left {
+    height: 0em;
+    transform: translateX(-1000px);
+}
+
+.move-right {
+    height: 0em;
+    transform: translateX(1000px);
 }
 
 .text {
@@ -153,10 +174,10 @@ section {
 
 .works-wrap {
     position: relative;
+    overflow: scroll;
 }
 
 .bg {
-
     background-image: url('./public/img/exhibitions/20231223_203805.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -221,6 +242,10 @@ section {
   }
   
   @media screen and (max-width: 600px) {
+
+    .container {
+        grid-template-columns: repeat(1, 1fr);
+    }
     .item {
       flex: 1 1 100%; /* Make each item take full width on smaller screens */
     }
