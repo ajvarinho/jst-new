@@ -39,7 +39,7 @@ const resized = window.addEventListener("resize", () => {
 const brickLeft = document.querySelector(".left.block");
 const brickRight = document.querySelector(".right.block");
 const mainTitleWrap = document.querySelector(".title-wrap");
-const infoTitle = document.querySelector(".info-title > h2");
+const infoTitle = document.querySelector(".info-title > p");
 
 console.log(brickLeft, brickRight);
 let zoom = 1;
@@ -67,30 +67,6 @@ window.addEventListener("scroll", function (e) {
     mainTitleWrap.classList.remove("fade-out");
   }
 });
-
-// let lastScrollTop = 0;
-
-// document.addEventListener("scroll", function (e) {
-//   let scrollTop = document.documentElement.scrollTop;
-//   let scrollAmount = scrollTop - lastScrollTop;
-//   lastScrollTop = scrollTop;
-
-//   console.log("Scroll amount:", scrollAmount);
-
-//   if (scrollAmount > 0) {
-//     brickLeft.style.transform = `translateX(${(zoom -= ZOOM_SPEED)}px)`;
-//     //brickLeft.classList.add("move-left");
-//   } else {
-//     //brickLeft.classList.remove("move-left");
-//     brickLeft.style.transform = `translateX(${(zoom += ZOOM_SPEED)}px)`;
-//   }
-
-//   if (scrollAmount > 0) {
-//     brickRight.style.transform = `translateX(${(zoom += ZOOM_SPEED)}px)`;
-//   } else {
-//     brickRight.style.transform = `translateX(${(zoom -= ZOOM_SPEED)}px)`;
-//   }
-// });
 
 // p5.js stuff
 
