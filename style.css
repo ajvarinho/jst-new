@@ -18,7 +18,7 @@
 
 * {
     box-sizing: border-box;
-    border: 1px solid blue;
+
 }
   
 html {
@@ -136,10 +136,8 @@ section {
 }
 
 .block {
-    /* position: relative; */
-    height: 10em;
+    height: 2em;
     width: 50%;
-    /**/
     display:grid;  
     place-items:center;  
     top:0;  
@@ -160,6 +158,30 @@ section {
 .move-right {
     height: 0em;
     transform: translateX(1000px);
+}
+
+.info-title {
+    color: darkgrey;
+    background: linear-gradient(
+        35deg,
+        rgba(10, 19, 255, 0.3),
+        rgb(215, 223, 223)
+      );
+      mix-blend-mode: multiply;
+}
+
+.info-title > h2 {
+    color: rgb(255, 255, 255);
+    font-size: 2em;
+    text-decoration: overline;
+    text-shadow: rgba(0, 51, 255, 1) 1px 0 10px;
+    transition-duration: 2s;
+}
+
+.text-animation {
+    letter-spacing: .2em;
+    text-align: center;
+    border: .1em solid blue;
 }
 
 .text {

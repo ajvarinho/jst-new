@@ -39,6 +39,7 @@ const resized = window.addEventListener("resize", () => {
 const brickLeft = document.querySelector(".left.block");
 const brickRight = document.querySelector(".right.block");
 const mainTitleWrap = document.querySelector(".title-wrap");
+const infoTitle = document.querySelector(".info-title > h2");
 
 console.log(brickLeft, brickRight);
 let zoom = 1;
@@ -54,11 +55,13 @@ window.addEventListener("scroll", function (e) {
   console.log(lastScrollTop);
 
   console.log("Scroll amount:", scrollAmount);
-  if (scrollAmount > 0) {
+  if (lastScrollTop > 200) {
     brickLeft.classList.add("move-left");
     brickRight.classList.add("move-right");
     mainTitleWrap.classList.add("fade-out");
-  } else if (lastScrollTop < 500) {
+    infoTitle.style = "";
+    infoTitle.classList.add("text-animation");
+  } else if (lastScrollTop < 300) {
     brickLeft.classList.remove("move-left");
     brickRight.classList.remove("move-right");
     mainTitleWrap.classList.remove("fade-out");
