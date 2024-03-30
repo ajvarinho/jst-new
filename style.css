@@ -10,7 +10,8 @@
     --justyna-mix: linear-gradient(0.25turn, rgb(25, 113, 221, 0.3),rgba(26, 25, 25, 0.2));
 
     /* box shadows */
-    --box-shadow-1: 1em 0.5em rgba(168, 8, 232, 0.7), -1em 2em 0.5em rgb(168, 8, 232); 
+    --box-shadow-1: 1em 0.5em rgba(8, 27, 232, 0.7), -1em 2em 0.5em rgb(23, 8, 232); 
+    --box-shadow-blue-fog: 35px .2em 3.5em -3px blue;
 
     /* filters */
     --filter-1: drop-shadow(1em 1em 20px rgba(100, 84, 243, 0.6)) contrast(200%);
@@ -78,7 +79,18 @@ ul {
 section {
     position: relative;
     height: 100vh;
+    box-shadow: 0 .2em .5em -2px blue;
 }
+
+/* HELLPAZ*/
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/**/
   
 .title-wrap {
     position: fixed;
@@ -122,11 +134,20 @@ section {
     line-height: 2em;
     padding-inline-start: 1.5em;
     letter-spacing: .3em;
+    transition-duration: .7s;
+}
+
+.nav-item:hover {
+    border-bottom: 1px solid blue;
+    box-shadow: 0 .2em .5em -2px blue;
 }
 
 /**/
 .info {
     background-color: #e8eaf6;
+    border-bottom: 1px solid blue;
+    box-shadow: 0 .2em .5em -2px blue;
+    padding: 2em;
 }
 
 .test-scroll {

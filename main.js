@@ -93,7 +93,7 @@ function preload() {
 
 function setup() {
   //set the canvas size
-  let canvas = createCanvas(introWidth, introHeight);
+  let canvas = createCanvas(introWidth - 50, introHeight);
   canvas.parent("#canvas-wrap");
 }
 
