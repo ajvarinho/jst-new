@@ -200,6 +200,11 @@ section {
     transition-duration: 2s;
 }
 
+.info-title > p:hover {
+    font-variation-settings: "wght" 582; 
+    letter-spacing: 1px;
+  }
+
 .text-animation {
     letter-spacing: .2em;
     text-align: center;
