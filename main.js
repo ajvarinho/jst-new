@@ -23,6 +23,10 @@ let new_x;
 let new_y;
 let new_rad;
 
+//
+
+let initValues = [];
+
 /**
  * test - how to handle window resizing
  */
@@ -40,6 +44,14 @@ function handleResize() {
   anotherFunction(numericValue);
 }
 
+function checkArray(arr) {
+  let i = 0;
+  for (i; i < arr.length; i++) {
+    console.log("arr check, ", arr[i]);
+    initValues.push(arr[i]);
+  }
+}
+
 // Attach the resize event listener to the window object
 //window.addEventListener("resize", handleResize);
 
@@ -51,24 +63,33 @@ function handleResize() {
  */
 
 let values = {
-  ellipseOne: [innerWidth / 2.5 + 100, 270, 380, 380],
-  ellipseTwo: [innerWidth / 2.5 + 50, 270, 380, 380],
-  elipseThree: [innerWidth / 2.5 - 50, 270, 380, 380],
-  ellipseFour: [innerWidth / 2.5 - 100, 250, 380, 380],
-  ellipseFive: [innerWidth / 2.5 - 130, 220, 380, 380],
-  ellipseSix: [innerWidth / 2.5 - 150, 190, 380, 380],
-  ellipseSeven: [innerWidth / 2.5 - 70, 150, 380, 380],
+  ellipseOne: [Math.round(innerWidth / 3.5 + 100), 270, 380, 380],
+  ellipseTwo: [innerWidth / 3.5 + 50, 270, 380, 380],
+  elipseThree: [innerWidth / 3.5 - 50, 270, 380, 380],
+  ellipseFour: [innerWidth / 3.5 - 100, 250, 380, 380],
+  ellipseFive: [innerWidth / 3.5 - 130, 220, 380, 380],
+  ellipseSix: [innerWidth / 3.5 - 150, 190, 380, 380],
+  ellipseSeven: [innerWidth / 3.5 - 70, 150, 380, 380],
+  imgOneBorder: [innerWidth / 3.5 - 50, 100, 382, 382],
+  imgOne: [innerWidth / 3.5 - 50, 100, 380, 380],
   //
-  rectOne: [innerWidth - (fractionWidth + 220), 350, 250, 300],
-  rectTwo: [innerWidth - (fractionWidth + 260), 300, 250, 300],
-  rectThree: [innerWidth - (fractionWidth + 280), 280, 250, 300],
-  rectFour: [innerWidth - (fractionWidth + 300), 220, 250, 300],
-  rectFive: [innerWidth - (fractionWidth + 310), 180, 250, 300],
-  rectSix: [innerWidth - (fractionWidth + 315), 140, 250, 300],
-  rectSeven: [innerWidth - (fractionWidth + 305), 130, 250, 300],
-  rectEight: [innerWidth - (fractionWidth + 295), 120, 250, 300],
-  rectNine: [innerWidth - (fractionWidth + 285), 110, 250, 300],
+  rectOne: [innerWidth / 1.1 - (fractionWidth + 120), 350, 250, 300],
+  rectTwo: [innerWidth / 1.1 - (fractionWidth + 260), 300, 250, 300],
+  rectThree: [innerWidth / 1.1 - (fractionWidth + 280), 280, 250, 300],
+  rectFour: [innerWidth / 1.1 - (fractionWidth + 300), 220, 250, 300],
+  rectFive: [innerWidth / 1.1 - (fractionWidth + 310), 180, 250, 300],
+  rectSix: [innerWidth / 1.1 - (fractionWidth + 315), 140, 250, 300],
+  rectSeven: [innerWidth / 1.1 - (fractionWidth + 305), 130, 250, 300],
+  rectEight: [innerWidth / 1.1 - (fractionWidth + 295), 120, 250, 300],
+  rectNine: [innerWidth / 1.1 - (fractionWidth + 285), 110, 250, 300],
+  imgTwoBorder: [innerWidth / 1.1 - (fractionWidth + 275), 100, 250, 300],
+  imgTwo: [innerWidth / 1.1 - (fractionWidth + 275), 100, 250, 300],
 };
+
+let elementsList = Object.keys(values);
+let valuesArray = Object.values(values);
+
+console.log(elementsList, valuesArray);
 
 //
 let rectSmallOne = [];
@@ -83,27 +104,45 @@ let rectSmallFive = [];
  */
 
 function handleCanvasResizing() {
+  //
   newWidth = introWrap.offsetWidth;
   newHeight = introWrap.offsetHeight;
+  //
   init_x = Math.round(innerWidth / 2.5 + 100);
   init_y = 270;
   init_rad = 380;
+  // calculate percentage change
   percentageX = Math.round((newWidth / introWidth) * 100);
   percentageY = Math.round((newHeight / introHeight) * 100);
   percentageChangeX = 100 - percentageX;
   percentageChangeY = 100 - percentageY;
+  // calculate change for elements
   values.ellipseOne[0] = Math.round(
-    init_x - (percentageChangeX / 100) * init_x
+    valuesArray[0][0] - (percentageChangeX / 100) * valuesArray[0][0]
   );
   values.ellipseOne[1] = Math.round(
-    init_y - (percentageChangeY / 100) * init_y
+    valuesArray[0][1] - (percentageChangeY / 100) * valuesArray[0][1]
   );
   values.ellipseOne[2] = Math.round(
-    init_rad - (percentageChangeX / 100) * init_rad
+    valuesArray[0][2] - (percentageChangeX / 100) * valuesArray[0][2]
   );
   values.ellipseOne[3] = Math.round(
-    init_rad - (percentageChangeX / 100) * init_rad
+    valuesArray[0][3] - (percentageChangeX / 100) * valuesArray[0][3]
   );
+  //
+  values.ellipseTwo[0] = Math.round(
+    valuesArray[1][0] - (percentageChangeX / 100) * valuesArray[1][0]
+  );
+  values.ellipseTwo[1] = Math.round(
+    valuesArray[1][1] - (percentageChangeY / 100) * valuesArray[1][1]
+  );
+  values.ellipseTwo[2] = Math.round(
+    valuesArray[1][2] - (percentageChangeX / 100) * valuesArray[1][2]
+  );
+  values.ellipseTwo[3] = Math.round(
+    valuesArray[1][3] - (percentageChangeX / 100) * valuesArray[1][3]
+  );
+
   draw();
 }
 
@@ -112,6 +151,8 @@ const resized = window.addEventListener("resize", handleCanvasResizing);
 window.addEventListener("load", () => {
   handleCanvasResizing();
 });
+
+console.log("check", Object.values(values));
 
 let pg;
 let bg;
@@ -140,11 +181,11 @@ function setup() {
   canvas.parent("#canvas-wrap");
 }
 
-console.log(values, typeof values);
+//console.log(values, typeof values);
 
 function draw() {
   let check = values;
-  console.log(check);
+  //console.log(check);
 
   background(255, 255, 255);
   fill(200);
@@ -163,21 +204,61 @@ function draw() {
     values.ellipseOne[3]
   );
   //
-  ellipse(innerWidth / 2.5 + 100, 270, 380, 380);
-  ellipse(innerWidth / 2.5 + 50, 270, 380, 380);
-  // //
-  ellipse(innerWidth / 2.5 - 50, 270, 380, 380);
-  ellipse(innerWidth / 2.5 - 100, 250, 380, 380);
-  ellipse(innerWidth / 2.5 - 130, 220, 380, 380);
-  ellipse(innerWidth / 2.5 - 150, 190, 380, 380);
+  ellipse(
+    values.ellipseTwo[0],
+    values.ellipseTwo[1],
+    values.ellipseTwo[2],
+    values.ellipseTwo[3]
+  );
+  ellipse(
+    values.elipseThree[0],
+    values.elipseThree[1],
+    values.elipseThree[2],
+    values.elipseThree[3]
+  );
+  ellipse(
+    values.ellipseFour[0],
+    values.ellipseFour[1],
+    values.ellipseFour[2],
+    values.ellipseFour[3]
+  );
+  ellipse(
+    values.ellipseFive[0],
+    values.ellipseFive[1],
+    values.ellipseFive[2],
+    values.ellipseFive[3]
+  );
+  ellipse(
+    values.ellipseSix[0],
+    values.ellipseSix[1],
+    values.ellipseSix[2],
+    values.ellipseSix[3]
+  );
+  ellipse(
+    values.ellipseSeven[0],
+    values.ellipseSeven[1],
+    values.ellipseSeven[2],
+    values.ellipseSeven[3]
+  );
   //
-  ellipse(innerWidth / 2.5 - 70, 150, 380, 380);
+  //ellipse(innerWidth / 2.5 - 70, 150, 380, 380);
 
   strokeWeight(1);
   stroke("blue");
   //border
-  ellipse(innerWidth / 2.5 - 50, 100, 382, 382);
-  image(imgOne, innerWidth / 2.5 - 50, 100, 380, 380);
+  ellipse(
+    values.imgOneBorder[0],
+    values.imgOneBorder[1],
+    values.imgOneBorder[2],
+    values.imgOneBorder[3]
+  );
+  image(
+    imgOne,
+    values.imgOne[0],
+    values.imgOne[1],
+    values.imgOne[2],
+    values.imgOne[3]
+  );
 
   //
   strokeWeight(1);
