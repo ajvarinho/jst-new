@@ -114,6 +114,8 @@ section {
     border: 1px solid blue;
     padding: 1em 2em 1em 0;
     width: 20em;
+    /**/
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .nav-item {
