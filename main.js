@@ -58,17 +58,17 @@ let values = {
   ellipseFive: [innerWidth / 2.5 - 130, 220, 380, 380],
   ellipseSix: [innerWidth / 2.5 - 150, 190, 380, 380],
   ellipseSeven: [innerWidth / 2.5 - 70, 150, 380, 380],
+  //
+  rectOne: [innerWidth - (fractionWidth + 220), 350, 250, 300],
+  rectTwo: [innerWidth - (fractionWidth + 260), 300, 250, 300],
+  rectThree: [innerWidth - (fractionWidth + 280), 280, 250, 300],
+  rectFour: [innerWidth - (fractionWidth + 300), 220, 250, 300],
+  rectFive: [innerWidth - (fractionWidth + 310), 180, 250, 300],
+  rectSix: [innerWidth - (fractionWidth + 315), 140, 250, 300],
+  rectSeven: [innerWidth - (fractionWidth + 305), 130, 250, 300],
+  rectEight: [innerWidth - (fractionWidth + 295), 120, 250, 300],
+  rectNine: [innerWidth - (fractionWidth + 285), 110, 250, 300],
 };
-
-let rectOne = [innerWidth - (fractionWidth + 220), 350, 250, 300];
-let rectTwo = [];
-let rectThree = [];
-let rectFour = [];
-let rectFive = [];
-let rectSix = [];
-let rectSeven = [];
-let rectEight = [];
-let rectNine = [];
 
 //
 let rectSmallOne = [];
@@ -162,21 +162,22 @@ function draw() {
     values.ellipseOne[2],
     values.ellipseOne[3]
   );
-  // ellipse(innerWidth / 2.5 + 100, 270, 380, 380);
-  // ellipse(innerWidth / 2.5 + 50, 270, 380, 380);
-  // // //
-  // ellipse(innerWidth / 2.5 - 50, 270, 380, 380);
-  // ellipse(innerWidth / 2.5 - 100, 250, 380, 380);
-  // ellipse(innerWidth / 2.5 - 130, 220, 380, 380);
-  // ellipse(innerWidth / 2.5 - 150, 190, 380, 380);
+  //
+  ellipse(innerWidth / 2.5 + 100, 270, 380, 380);
+  ellipse(innerWidth / 2.5 + 50, 270, 380, 380);
   // //
-  // ellipse(innerWidth / 2.5 - 70, 150, 380, 380);
+  ellipse(innerWidth / 2.5 - 50, 270, 380, 380);
+  ellipse(innerWidth / 2.5 - 100, 250, 380, 380);
+  ellipse(innerWidth / 2.5 - 130, 220, 380, 380);
+  ellipse(innerWidth / 2.5 - 150, 190, 380, 380);
+  //
+  ellipse(innerWidth / 2.5 - 70, 150, 380, 380);
 
   strokeWeight(1);
   stroke("blue");
   //border
-  //ellipse(innerWidth / 2.5 - 50, 100, 382, 382);
-  //image(imgOne, innerWidth / 2.5 - 50, 100, 380, 380);
+  ellipse(innerWidth / 2.5 - 50, 100, 382, 382);
+  image(imgOne, innerWidth / 2.5 - 50, 100, 380, 380);
 
   //
   strokeWeight(1);
