@@ -291,8 +291,10 @@ section {
   }
 
   .footer {
-    border-top: 1px solid blue;
+    height: 3em;
+    padding: 1em 0;
     text-align: center;
+    box-shadow: inset .2em .2em .5em -6px blue;
   }
   
   @media screen and (max-width: 600px) {
