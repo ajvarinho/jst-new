@@ -104,14 +104,6 @@ section.room {
     overflow: hidden;
  }
 
- #canvas-wrap {
-    position: absolute;
-    top: 50%;  
-    left: 50%; 
-    transform: translate(-50%, -50%);
-    background-color: transparent;
- }
-
 .scene {
     position: relative;
     transform-style: preserve-3d;
@@ -200,17 +192,14 @@ section.room {
  .rightWall {
     transform: rotateY(90deg);
     left:0;
-    background-image:  url('./public/img/exhibitions/20231223_203805.jpg');
-    background-color: rgb(255, 254, 253);
+    background: var(--bg-linear-3);
     border: 1px solid blue;
   }
 
   .floor {
-    background-color: #000;
-    background-image:  url('./public/img/design/1.jpg');
+    /* background-image:  url('./public/img/design/1.jpg'); */
     /* background-position:  1em 0, 1em 0, 0 0, 0 0;
     background-size: 5em 5em; */
-    background-repeat: no-repeat;
     width: 20em;
     height: 20em;
     top: 1em;
@@ -220,8 +209,7 @@ section.room {
       translate(-50%, -50%)
       rotateX(90deg)
       translateZ(-3em);
-      /**/
-    background-color: rgb(255, 252, 247);
+    background: var(--bg-linear-1);
     border: 1px solid blue;
  }
 
