@@ -68,6 +68,60 @@ window.addEventListener("scroll", function (e) {
   }
 });
 
+//gallery test
+let paintings = [
+  "./public/img/paintings/rnd.png",
+  "./public/img/paintings/8.jpg",
+  "./public/img/paintings/5-d2.jpg",
+  "./public/img/paintings/5-d1.jpg",
+  "./public/img/paintings/4.jpg",
+  "./public/img/paintings/1.jpg",
+];
+
+let design = [
+  "./public/img/design/1.jpg",
+  "./public/img/design/2.jpg",
+  "./public/img/design/3.jpg",
+  "./public/img/design/4.jpg",
+  "./public/img/design/5.jpg",
+  "./public/img/design/6.jpg",
+];
+
+const paintingsBtn = document.getElementById("paintings");
+const designBtn = document.getElementById("design");
+const imgContainer = document.querySelector(".container");
+const images = document.querySelectorAll(".img-wrap > img");
+
+const newImgModule = function (arr) {
+  images.forEach((image, index) => {
+    image.src = arr[index];
+  });
+};
+
+const removeTransitionClass = function () {
+  imgContainer.classList.remove("transition");
+};
+
+const animateModule = function () {
+  imgContainer.classList.add("transition");
+};
+
+paintingsBtn.addEventListener("click", () => {
+  animateModule();
+  setTimeout(removeTransitionClass, 500);
+  newImgModule(paintings);
+});
+
+designBtn.addEventListener("click", () => {
+  newImgModule(design);
+});
+
+images.forEach((image) => {
+  image.addEventListener("click", () => {
+    image.classList.add("active");
+  });
+});
+
 // p5.js stuff
 
 let pg;

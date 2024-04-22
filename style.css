@@ -143,6 +143,18 @@ section {
 }
 
 /**/
+
+.scrollback-btn {
+  position: sticky;
+  bottom: 5em;
+  left: 90%;
+  font-size: 2em;
+  z-index: 100;
+  border: 1px solid blue;
+  border-radius: 12px;
+  padding: .3em .5em;
+}
+
 .info {
     background-color: #e8eaf6;
     border-bottom: 1px solid blue;
@@ -220,6 +232,12 @@ section {
     width: 20em;
 }
 
+.project-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 
 .works-wrap {
     position: relative;
@@ -238,6 +256,16 @@ section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+  }
+
+  .transition > * {
+    transition-duration: .5s;
+    transform: translateX(-20%);
+    opacity: 0;
+  }
+
+  .active {
+    transform: scale(2);
   }
   
   .img-wrap {
