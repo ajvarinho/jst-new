@@ -124,6 +124,8 @@ images.forEach((image) => {
 
 // p5.js stuff
 
+let angle = 0;
+
 let pg;
 let bg;
 let bg2;
@@ -149,6 +151,8 @@ function setup() {
   //set the canvas size
   let canvas = createCanvas(introWidth - 50, introHeight);
   canvas.parent("#canvas-wrap");
+  //
+  angleMode(DEGREES);
 }
 
 function draw() {
@@ -179,7 +183,7 @@ function draw() {
 
   //
   strokeWeight(1);
-  stroke("blue");
+  stroke(22, 39, 220);
   //bilo 100
   rect(innerWidth / 1.1 - (fractionWidth + 120), 350, 250, 300);
   //test
@@ -189,6 +193,20 @@ function draw() {
   rect(innerWidth / 1.1 - (fractionWidth + 310), 180, 250, 300);
   //
   rect(innerWidth / 1.1 - (fractionWidth + 315), 140, 250, 300);
+  //
+  rect(mouseX, mouseY, 250, 300);
+  rect(mouseX - 100, mouseY - 160, 50, 50);
+  push();
+  translate(mouseX - 300, mouseY - 300);
+  rectMode(CENTER);
+  rotate(angle);
+  //scale(mouseY / 1000, mouseX / 1000);
+  fill(22, 39, 220);
+  rect(0, 0, mouseX, mouseY);
+  pop();
+  //
+
+  angle = angle + 1;
   rect(innerWidth / 1.1 - (fractionWidth + 305), 130, 250, 300);
   rect(innerWidth / 1.1 - (fractionWidth + 295), 120, 250, 300);
   rect(innerWidth / 1.1 - (fractionWidth + 285), 110, 250, 300);
@@ -208,9 +226,58 @@ function draw() {
   rect(innerWidth / 1.1 - (fractionWidth + 320), 650, 300, 200);
   image(imgThree, innerWidth / 1.1 - (fractionWidth + 320), 650, 300, 200);
 
-  image(imgSmallTwo, innerWidth - 300, 200, 150, 100);
+  image(imgSmallTwo, mouseX, mouseY, 150, 100);
   image(imgSmallThree, 100, 600, 150, 200);
 
   image(imgSmallFour, innerWidth - 200, 700, 150, 100);
-  noLoop();
+  //noLoop();
 }
+
+// ODLICNO ! ! !
+
+// let scale;
+
+// function setup() {
+//   createCanvas(720, 400);
+//   noStroke();
+//   scale = width/20;
+// }
+
+// function draw() {
+//   let i;
+//   for ( i = 0; i < scale; i++) {
+//     colorMode(RGB, (i+1) * scale * 20);
+//     fill(millis()%((i+1) * scale * 20));
+//     ellipse(i*scale, mouseY, scale, scale);
+//   }
+// }
+
+//ili
+
+// function draw() {
+//   let i;
+//   for ( i = 0; i < scale; i++) {
+//     colorMode(RGB, (i+1) * scale * 30);
+//     fill(millis()%((i+1) * (scale+50) * 40));
+//     rect(i*scale, mouseY, scale, scale);
+//   }
+// }
+
+//
+
+// let scale;
+
+// function setup() {
+//   createCanvas(720, 400);
+//   noStroke();
+//   scale = width/20;
+// }
+
+// function draw() {
+//   let i;
+//   for ( i = 0; i < scale; i++) {
+//     colorMode(RGB, (i+1) * scale * 10);
+//     fill(millis()%((i+1) * scale * 10), 112, millis()%((i+10) * scale * 20));
+//     rect(i*scale, 0, scale, height);
+//   }
+// }
