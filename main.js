@@ -1,241 +1,89 @@
-console.log("alo");
+// test svg
+const svgWrapEl = document.querySelector(".svg-wrap");
+const svgEl = document.querySelector(".svg-el");
 
-//test
-const introWrap = document.getElementById("intro-wrap");
-let introHeight = introWrap.offsetHeight;
-let introWidth = introWrap.offsetWidth;
-let newWidth;
-let percentageX;
-let percentageY;
-let percentageChangeX;
-let percentageChangeY;
+let wrapWidth = svgWrapEl.offsetWidth;
+let wrapHeight = svgWrapEl.offsetHeight;
 
-const fractionHeight = introHeight / 4;
-const fractionWidth = introWidth / 4;
+svgEl.setAttribute("height", wrapHeight);
+svgEl.setAttribute("width", wrapWidth);
+svgEl.setAttribute("viewBox", `0, 0, ${wrapWidth}, ${wrapHeight}`);
 
-console.log("b4 re-sizin", introHeight, introWidth);
+const mainLineTop = document.querySelector(".main-top");
+const mainLineRight = document.querySelector(".main-right");
+const angleLineRight = document.querySelector(".angle-right");
+//
+const linesBottom = document.getElementsByClassName("bottom");
+//
+let width = Math.round(wrapWidth);
+let height = Math.round(wrapHeight);
+
+mainLineTop.setAttribute("x2", width);
+//
+mainLineRight.setAttribute("x1", width);
+mainLineRight.setAttribute("y1", 50);
+mainLineRight.setAttribute("x2", width);
+mainLineRight.setAttribute("y2", height / 4 + 100);
+//
+//tu za height innerHeight (window)?
+angleLineRight.setAttribute("x1", width);
+angleLineRight.setAttribute("y1", height / 4 + 100);
+angleLineRight.setAttribute("x2", width - 50);
+angleLineRight.setAttribute("y2", height / 4 + 50);
+//
+linesBottom[0].setAttribute("x2", width);
+linesBottom[1].setAttribute("x1", width);
+linesBottom[1].setAttribute("x2", width);
+linesBottom[2].setAttribute("x1", width);
+//
+//left
+
+let lineLengthsArr = [];
+
+// const linesArr = document.querySelectorAll(".frame-line");
+// linesArr.forEach((line, index) => {
+//   let lineLength = line.getTotalLength();
+//   lineLength = Math.round(lineLength);
+//   lineLengthsArr.push(lineLength);
+// });
+
+// linesArr.forEach((line, index) => {
+//   line.style.strokeDasharray = lineLengthsArr[index];
+//   line.style.strokeDashOffset = lineLengthsArr[index];
+// });
+
+// // Hide the triangle by offsetting dash. Remove this line to show the triangle before scroll draw
+// linesArr.forEach((line, index) => {
+//   //
+//   line.style.strokeDashOffset = lineLengthsArr[index];
+// });
+
+// // Find scroll percentage on scroll (using cross-browser properties), and offset dash same amount as percentage scrolled
+// window.addEventListener("scroll", myFunction);
+
+// function myFunction() {
+//   let scrollPercent =
+//     (document.body.scrollTop + document.documentElement.scrollTop) /
+//     (document.documentElement.scrollHeight -
+//       document.documentElement.clientHeight);
+
+//   console.log("scroll percent", scrollPercent);
+//   let drawLine;
+//   //
+//   let drawLineArr = [];
+
+//   linesArr.forEach((line, index) => {
+//     drawLine = Math.round(lineLengthsArr[index] * scrollPercent);
+//     drawLineArr.push(drawLine);
+//     //bilo dasharray
+//     //stroke dash array fragmentira linije
+//     line.style.strokeDashoffset = lineLengthsArr[index] - drawLine;
+//   });
+// }
+
+// p5.js
 
 //
-let init_x;
-let new_x;
-
-/**
- * staviti listener unutar funkcije
- * funkcija vraca newWidth i percentage
- */
-
-const resized = window.addEventListener("resize", () => {
-  newWidth = introWrap.offsetWidth;
-  newHeight = introWrap.offsetHeight;
-  init_x = Math.round(innerWidth / 2.5 + 100);
-  percentageX = Math.round((newWidth / introWidth) * 100);
-  percentageY = Math.round((newHeight / introHeight) * 100);
-  percentageChangeX = 100 - percentageX;
-  percentageChangeY = 100 - percentageY;
-  new_x = Math.round(init_x - (percentageChangeX / 100) * init_x);
-  draw(new_x, percentageChangeX, percentageChangeY);
-});
-
-const brickLeft = document.querySelector(".left.block");
-const brickRight = document.querySelector(".right.block");
-const mainTitleWrap = document.querySelector(".title-wrap");
-const infoTitle = document.querySelector(".info-title > p");
-
-console.log(brickLeft, brickRight);
-let zoom = 1;
-const ZOOM_SPEED = 10;
-let lastScrollTop = 0;
-window.addEventListener("scroll", function (e) {
-  //console.log("lol scroll", e.deltaY);
-  //
-  let scrollTop = document.documentElement.scrollTop;
-  let scrollAmount = scrollTop - lastScrollTop;
-  lastScrollTop = scrollTop;
-
-  console.log(lastScrollTop);
-
-  console.log("Scroll amount:", scrollAmount);
-  if (lastScrollTop > 200) {
-    brickLeft.classList.add("move-left");
-    brickRight.classList.add("move-right");
-    mainTitleWrap.classList.add("fade-out");
-    infoTitle.style = "";
-    infoTitle.classList.add("text-animation");
-  } else if (lastScrollTop < 300) {
-    brickLeft.classList.remove("move-left");
-    brickRight.classList.remove("move-right");
-    mainTitleWrap.classList.remove("fade-out");
-  }
-});
-
-//gallery test
-let paintings = [
-  "./public/img/paintings/rnd.png",
-  "./public/img/paintings/8.jpg",
-  "./public/img/paintings/5-d2.jpg",
-  "./public/img/paintings/5-d1.jpg",
-  "./public/img/paintings/4.jpg",
-  "./public/img/paintings/1.jpg",
-];
-
-let design = [
-  "./public/img/design/1.jpg",
-  "./public/img/design/2.jpg",
-  "./public/img/design/3.jpg",
-  "./public/img/design/4.jpg",
-  "./public/img/design/5.jpg",
-  "./public/img/design/6.jpg",
-];
-
-const paintingsBtn = document.getElementById("paintings");
-const designBtn = document.getElementById("design");
-const imgContainer = document.querySelector(".container");
-const images = document.querySelectorAll(".img-wrap > img");
-
-const newImgModule = function (arr) {
-  images.forEach((image, index) => {
-    image.src = arr[index];
-  });
-};
-
-const removeTransitionClass = function () {
-  imgContainer.classList.remove("transition");
-};
-
-const animateModule = function () {
-  imgContainer.classList.add("transition");
-};
-
-paintingsBtn.addEventListener("click", () => {
-  animateModule();
-  setTimeout(removeTransitionClass, 500);
-  newImgModule(paintings);
-});
-
-designBtn.addEventListener("click", () => {
-  newImgModule(design);
-});
-
-images.forEach((image) => {
-  image.addEventListener("click", () => {
-    image.classList.add("active");
-  });
-});
-
-// p5.js stuff
-
-let angle = 0;
-
-let pg;
-let bg;
-let bg2;
-let imgOne;
-let imgTwo;
-let imgThree;
-let imgSmallOne;
-let imgSmallTwo;
-let imgSmallThree;
-let imgSmallFour;
-
-function preload() {
-  imgOne = loadImage("./public/img/paintings/rnd.png");
-  imgTwo = loadImage("./public/img/paintings/8.jpg");
-  imgThree = loadImage("./public/img/paintings/5-d2.jpg");
-  imgSmallOne = loadImage("./public/img/paintings/4-d1.jpg");
-  imgSmallTwo = loadImage("./public/img/paintings/5-d1.jpg");
-  imgSmallThree = loadImage("./public/img/paintings/4.jpg");
-  imgSmallFour = loadImage("./public/img/paintings/1.jpg");
-}
-
-function setup() {
-  //set the canvas size
-  let canvas = createCanvas(introWidth - 50, introHeight);
-  canvas.parent("#canvas-wrap");
-  //
-  angleMode(DEGREES);
-}
-
-function draw() {
-  background(255, 255, 255);
-  fill(200);
-  //
-  image(imgSmallOne, 200, 100, 150, 100);
-  strokeWeight(1);
-  stroke("blue");
-  ellipseMode(CORNER);
-  //
-  //ellipse(new_x, 270, 380, 380);
-  ellipse(innerWidth / 3.5 + 100, 270, 380, 380);
-  ellipse(innerWidth / 3.5 + 50, 270, 380, 380);
-  // //
-  ellipse(innerWidth / 3.5 - 50, 270, 380, 380);
-  ellipse(innerWidth / 3.5 - 100, 250, 380, 380);
-  ellipse(innerWidth / 3.5 - 130, 220, 380, 380);
-  ellipse(innerWidth / 3.5 - 150, 190, 380, 380);
-  //
-  ellipse(innerWidth / 3.5 - 70, 150, 380, 380);
-
-  strokeWeight(1);
-  stroke("blue");
-  //border
-  ellipse(innerWidth / 3.5 - 50, 100, 382, 382);
-  image(imgOne, innerWidth / 3.5 - 50, 100, 380, 380);
-
-  //
-  strokeWeight(1);
-  stroke(22, 39, 220);
-  //bilo 100
-  rect(innerWidth / 1.1 - (fractionWidth + 120), 350, 250, 300);
-  //test
-  rect(innerWidth / 1.1 - (fractionWidth + 260), 300, 250, 300);
-  rect(innerWidth / 1.1 - (fractionWidth + 280), 280, 250, 300);
-  rect(innerWidth / 1.1 - (fractionWidth + 300), 220, 250, 300);
-  rect(innerWidth / 1.1 - (fractionWidth + 310), 180, 250, 300);
-  //
-  rect(innerWidth / 1.1 - (fractionWidth + 315), 140, 250, 300);
-  //
-  rect(mouseX, mouseY, 250, 300);
-  rect(mouseX - 100, mouseY - 160, 50, 50);
-  push();
-  translate(mouseX - 300, mouseY - 300);
-  rectMode(CENTER);
-  rotate(angle);
-  //scale(mouseY / 1000, mouseX / 1000);
-  fill(22, 39, 220);
-  rect(0, 0, mouseX, mouseY);
-  pop();
-  //
-
-  angle = angle + 1;
-  rect(innerWidth / 1.1 - (fractionWidth + 305), 130, 250, 300);
-  rect(innerWidth / 1.1 - (fractionWidth + 295), 120, 250, 300);
-  rect(innerWidth / 1.1 - (fractionWidth + 285), 110, 250, 300);
-  rect(innerWidth / 1.1 - (fractionWidth + 275), 100, 250, 300);
-
-  console.log(fractionWidth, "aaa");
-  //bilko
-  image(imgTwo, innerWidth / 1.1 - (fractionWidth + 275), 100, 250, 300);
-  //
-  rect(innerWidth / 1.1 - (fractionWidth + 70), 700, 300, 200);
-  rect(innerWidth / 1.1 - (fractionWidth + 100), 710, 300, 200);
-  rect(innerWidth / 1.1 - (fractionWidth + 120), 700, 300, 200);
-  rect(innerWidth / 1.1 - (fractionWidth + 150), 690, 300, 200);
-  rect(innerWidth / 1.1 - (fractionWidth + 200), 680, 300, 200);
-  rect(innerWidth / 1.1 - (fractionWidth + 250), 670, 300, 200);
-  //bilo 250
-  rect(innerWidth / 1.1 - (fractionWidth + 320), 650, 300, 200);
-  image(imgThree, innerWidth / 1.1 - (fractionWidth + 320), 650, 300, 200);
-
-  image(imgSmallTwo, mouseX, mouseY, 150, 100);
-  image(imgSmallThree, 100, 600, 150, 200);
-
-  image(imgSmallFour, innerWidth - 200, 700, 150, 100);
-  //noLoop();
-}
-
-// ODLICNO ! ! !
-
-// let scale;
 
 // function setup() {
 //   createCanvas(720, 400);
@@ -252,32 +100,85 @@ function draw() {
 //   }
 // }
 
-//ili
-
-// function draw() {
-//   let i;
-//   for ( i = 0; i < scale; i++) {
-//     colorMode(RGB, (i+1) * scale * 30);
-//     fill(millis()%((i+1) * (scale+50) * 40));
-//     rect(i*scale, mouseY, scale, scale);
-//   }
-// }
+let scaleTest;
 
 //
+const canvasWrap = document.getElementById("canvas-wrap");
+let canvasWrapHeight = canvasWrap.offsetHeight;
+let canvasWrapWidth = canvasWrap.offsetWidth;
 
-// let scale;
+function setup() {
+  //set the canvas size
+  let canvas = createCanvas(canvasWrapWidth, canvasWrapHeight);
+  canvas.parent("#canvas-wrap");
+  rectMode(CENTER);
+  noStroke();
+  scaleTest = canvasWrapWidth / 50;
+  // stroke("blue");
+  // strokeWeight(2);
+  //background("rebeccapurple");
 
-// function setup() {
-//   createCanvas(720, 400);
-//   noStroke();
-//   scale = width/20;
-// }
+  // FRAME
+  // TOP, RIGHT
+  // line(0, 25, 150, 25);
+  // line(150, 25, 175, 0);
+  // line(175, 0, 350, 0);
+  // line(350, 0, 400, 25);
+  // line(400, 25, wrapWidth, 25);
+  // line(wrapWidth, 25, wrapWidth, wrapHeight / 2 - 200);
+  // line(wrapWidth, wrapHeight / 2 - 200, wrapWidth - 100, wrapHeight / 2 - 300);
+  // //
+  // //LEFT
+  // line(0, 25, 0, 200);
+  // line(0, 200, 200, 150);
+  // line(200, 150, 200, 400);
+  // line(200, 400, 0, 450);
+  // line(0, 450, 0, wrapHeight / 2 - 100);
+  // //
+  // //BOTTOM
+  // line(0, wrapHeight / 2 - 100, wrapWidth, wrapHeight / 2 - 100);
+  // line(wrapWidth, wrapHeight / 2 - 100, wrapWidth, wrapHeight / 2);
+  // //
+  // //NEW EL
+  // line(wrapWidth, wrapHeight / 2, 300, wrapHeight / 2);
+  // line(300, wrapHeight / 2, 275, wrapHeight / 2 - 25);
+  // line(275, wrapHeight / 2 - 25, 0, wrapHeight / 2 - 25);
+  // line(0, wrapHeight / 2 - 25, 0, wrapHeight);
+}
 
-// function draw() {
-//   let i;
-//   for ( i = 0; i < scale; i++) {
-//     colorMode(RGB, (i+1) * scale * 10);
-//     fill(millis()%((i+1) * scale * 10), 112, millis()%((i+10) * scale * 20));
-//     rect(i*scale, 0, scale, height);
-//   }
-// }
+function draw() {
+  //   let i;
+  //   for (i = 0; i < scaleTest; i++) {
+  //     colorMode(RGB, (i + 1) * scaleTest * 20);
+  //     fill(millis() % ((i + 1) * scaleTest * 20));
+  //     ellipse(i * scaleTest, mouseY, scaleTest, scaleTest);
+  //   }
+
+  fill(255);
+  ellipse(350, 350, 80, 80);
+
+  let w = 720;
+  let h = 500;
+
+  background(230);
+
+  let r1 = map(mouseX, 0, w, 0, h / 5);
+  let r2 = height - r1;
+
+  translate(500, 400);
+
+  fill(27, 134, 255, r1);
+  rect(w / 2 + r1 / 2, h / 2 + r1, 200, 100);
+
+  fill(237, 34, 93, r1);
+  rect(w - r2 / 2, h / 2 - r1, 500, 200);
+
+  fill(27, 134, 255, r1);
+  ellipse(w / 2 + r1 / 2, h / 2 + r1, 100, 100);
+
+  fill(237, 34, 93, r1);
+  rect(w - r2 / 2 - 100, h / 2 - r1 - 100, 500, 200);
+
+  fill(237, 34, 93, r1);
+  rect(mouseX - r1, mouseY - r1 * 1.5, 10, window.innerHeight);
+}
