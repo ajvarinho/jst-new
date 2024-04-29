@@ -154,31 +154,25 @@ function draw() {
   //     ellipse(i * scaleTest, mouseY, scaleTest, scaleTest);
   //   }
 
-  fill(255);
-  ellipse(350, 350, 80, 80);
-
-  let w = 720;
-  let h = 500;
-
   background(230);
 
-  let r1 = map(mouseX, 0, w, 0, h / 5);
+  let r1 = map(mouseX, 0, 1000, 0, innerWidth, true);
+  console.log("mouse", mouseX, r1, "r1 check", Math.floor(r1));
   let r2 = height - r1;
 
-  translate(500, 400);
+  //translate(720, 500);
 
-  fill(27, 134, 255, r1);
-  rect(w / 2 + r1 / 2, h / 2 + r1, 200, 100);
+  stroke(27, 134, 255, r1 - 200);
+  rect(650, 250, 150, 150);
 
-  fill(237, 34, 93, r1);
-  rect(w - r2 / 2, h / 2 - r1, 500, 200);
+  ellipse(r1, 220, 75, 75);
 
-  fill(27, 134, 255, r1);
-  ellipse(w / 2 + r1 / 2, h / 2 + r1, 100, 100);
+  rect(1300, 220, 100, 100);
+  rect(1200, 400, 250, 150);
 
-  fill(237, 34, 93, r1);
-  rect(w - r2 / 2 - 100, h / 2 - r1 - 100, 500, 200);
+  ellipse(1400, 450, 75, 75);
 
-  fill(237, 34, 93, r1);
-  rect(mouseX - r1, mouseY - r1 * 1.5, 10, window.innerHeight);
+  //activator
+  // fill(237, 34, 93, r1);
+  // rect(mouseX - r1, mouseY - r1 * 1.5, 10, window.innerHeight);
 }
