@@ -38,7 +38,7 @@ linesBottom[2].setAttribute("x1", width);
 //
 //left
 
-let lineLengthsArr = [];
+// let lineLengthsArr = [];
 
 // const linesArr = document.querySelectorAll(".frame-line");
 // linesArr.forEach((line, index) => {
@@ -55,7 +55,7 @@ let lineLengthsArr = [];
 // // Hide the triangle by offsetting dash. Remove this line to show the triangle before scroll draw
 // linesArr.forEach((line, index) => {
 //   //
-//   line.style.strokeDashOffset = lineLengthsArr[index];
+//   //line.style.strokeDashOffset = lineLengthsArr[index];
 // });
 
 // // Find scroll percentage on scroll (using cross-browser properties), and offset dash same amount as percentage scrolled
@@ -83,29 +83,15 @@ let lineLengthsArr = [];
 
 // p5.js
 
-//
-
-// function setup() {
-//   createCanvas(720, 400);
-//   noStroke();
-//   scale = width/20;
-// }
-
-// function draw() {
-//   let i;
-//   for ( i = 0; i < scale; i++) {
-//     colorMode(RGB, (i+1) * scale * 20);
-//     fill(millis()%((i+1) * scale * 20));
-//     ellipse(i*scale, mouseY, scale, scale);
-//   }
-// }
-
 let scaleTest;
 
 //
 const canvasWrap = document.getElementById("canvas-wrap");
 let canvasWrapHeight = canvasWrap.offsetHeight;
 let canvasWrapWidth = canvasWrap.offsetWidth;
+//
+let testOne = 0;
+let testTwo = 0;
 
 function setup() {
   //set the canvas size
@@ -114,65 +100,93 @@ function setup() {
   rectMode(CENTER);
   noStroke();
   scaleTest = canvasWrapWidth / 50;
-  // stroke("blue");
-  // strokeWeight(2);
-  //background("rebeccapurple");
-
-  // FRAME
-  // TOP, RIGHT
-  // line(0, 25, 150, 25);
-  // line(150, 25, 175, 0);
-  // line(175, 0, 350, 0);
-  // line(350, 0, 400, 25);
-  // line(400, 25, wrapWidth, 25);
-  // line(wrapWidth, 25, wrapWidth, wrapHeight / 2 - 200);
-  // line(wrapWidth, wrapHeight / 2 - 200, wrapWidth - 100, wrapHeight / 2 - 300);
-  // //
-  // //LEFT
-  // line(0, 25, 0, 200);
-  // line(0, 200, 200, 150);
-  // line(200, 150, 200, 400);
-  // line(200, 400, 0, 450);
-  // line(0, 450, 0, wrapHeight / 2 - 100);
-  // //
-  // //BOTTOM
-  // line(0, wrapHeight / 2 - 100, wrapWidth, wrapHeight / 2 - 100);
-  // line(wrapWidth, wrapHeight / 2 - 100, wrapWidth, wrapHeight / 2);
-  // //
-  // //NEW EL
-  // line(wrapWidth, wrapHeight / 2, 300, wrapHeight / 2);
-  // line(300, wrapHeight / 2, 275, wrapHeight / 2 - 25);
-  // line(275, wrapHeight / 2 - 25, 0, wrapHeight / 2 - 25);
-  // line(0, wrapHeight / 2 - 25, 0, wrapHeight);
 }
 
 function draw() {
-  //   let i;
-  //   for (i = 0; i < scaleTest; i++) {
-  //     colorMode(RGB, (i + 1) * scaleTest * 20);
-  //     fill(millis() % ((i + 1) * scaleTest * 20));
-  //     ellipse(i * scaleTest, mouseY, scaleTest, scaleTest);
-  //   }
-
-  background(230);
+  //background(253, 250, 251);
+  background("white");
 
   let r1 = map(mouseX, 0, 1000, 0, innerWidth, true);
-  console.log("mouse", mouseX, r1, "r1 check", Math.floor(r1));
   let r2 = height - r1;
 
   //translate(720, 500);
 
   stroke(27, 134, 255, r1 - 200);
-  rect(650, 250, 150, 150);
+  rect(700, 250, 150, 150);
 
-  ellipse(r1, 220, 75, 75);
+  ellipse(1000, 200, 75, 75);
 
-  rect(1300, 220, 100, 100);
-  rect(1200, 400, 250, 150);
+  rect(1300, 200, 100, 100);
+  rect(1200, 350, 250, 150);
 
-  ellipse(1400, 450, 75, 75);
+  // ellipse(1450, 400, 120, 120);
+  ellipse(650, 400, 100, 100);
+  // ellipse(900, 500, 200, 200);
+  // ellipse(1100, 600, 100, 100);
+  ellipse(1300, 500, 100, 100);
+  // rect(1400, 500, 50, 50);
+  rect(650, 650, 100, 250);
+  rect(900, 730, 250, 100);
+  rect(1300, 700, 150, 150);
+  //
+  let v1 = createVector(width / 2 - 50, height / 2);
+  let v2 = createVector(width / 2 + 50, height / 2);
 
-  //activator
-  // fill(237, 34, 93, r1);
-  // rect(mouseX - r1, mouseY - r1 * 1.5, 10, window.innerHeight);
+  // background(255);
+  // stroke(0);
+  // strokeWeight(4);
+
+  // push();
+  // translate(v1.x, v1.y);
+  // rotate(-1 * mouseX);
+  // translate(-v1.x, -v1.y);
+  // let r0 = line(v1.x, v1.y, v2.x, v2.y);
+  // strokeWeight(1);
+  // let p1 = point(v1.x, v1.y);
+  // let p2 = point(v2.x, v2.y);
+  // pop();
+
+  //
+  let i;
+  for (i = 0; i < scale; i++) {
+    colorMode(RGB, (i + 1) * scale * 20);
+    fill(millis() % ((i + 1) * scale * 20));
+    ellipse(i * scale, mouseY, scale, scale);
+  }
 }
+
+// tiles hover
+
+const imagesArr = [
+  "./public/img/paintings/1.jpg",
+  "./public/img/paintings/3.jpg",
+  "./public/img/paintings/4.jpg",
+  "./public/img/paintings/5.jpg",
+  "./public/img/paintings/6.jpg",
+];
+
+const introDivs = document.querySelectorAll(".tile");
+console.log(introDivs);
+
+// let e;
+
+// const replaceBgImg = function () {
+//   introDivs.forEach((tile, index) => {
+//     if ((e.target = tile[index])) {
+//       tile.style.backgroundImage = imagesArr[index];
+//     }
+//   });
+// };
+
+// let arrIntroDivs = Array.from(introDivs);
+
+// introDivs.forEach((element, index) => {
+//   let elIndex;
+//   element.addEventListener("mouseover", (e) => {
+//     console.log(e.target, index);
+//     let el = arrIntroDivs.find((element) => element === e.target);
+//     elIndex = index;
+//     console.log("aloo", elIndex);
+//   });
+//   element.style.backgroundImage = `url('${imagesArr[elIndex]}')`;
+// });
