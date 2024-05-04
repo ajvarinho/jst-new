@@ -114,6 +114,7 @@ section {
 }
 
 .list__item {
+  font-size: 1.5rem;
   padding: .5em;
   transform: rotate(-18deg);
 }
@@ -129,54 +130,106 @@ section {
 
 }
 
-.tile {
+.frame {
   position: absolute;
+  transition-duration: .7s;
+  animation-fill-mode: forwards;  
   border: 1px solid red;
-  background-image: url('./public/img/paintings/1.jpg');
 }
 
-.tile:first-of-type {
+.img {
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  transition-duration: .7s;
+}
+
+.frame::before {
+  content: '';
+  opacity: 1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 1px solid red;
+}
+
+.img:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.img:active {
+  transform: scale(1.5);
+  animation: hoverImg .7s ease-in;
+  background-size: cover;
+  background-position: center;
+}
+
+.frame:first-of-type {
   top: 2rem;
   left: 20%;
   height: 10rem;
   width: 10rem;
+}
+
+.img:first-of-type{
   background-position: 10% 10%;
 }
 
-.tile:nth-of-type(2){
+.frame:nth-of-type(2){
   top: 1rem;
   left: 85%;
   height: 6rem;
   width: 6rem;
+}
+
+.frame:nth-of-type(2) > .img{
   background-position: 20% 20%;
 }
 
-.tile:nth-of-type(3){
+.frame:nth-of-type(3){
   top: 10rem;
   left: 65%;
   height: 9rem;
   width: 16rem;
+}
+
+.frame:nth-of-type(3) > .img{
   background-position: 30% 30%;
 }
 
-.tile:nth-of-type(4){
+.frame:nth-of-type(4){
   top: 40%;
   left: 40%;
   height: 12rem;
   width: 12rem;
   border-radius: 50%;
-  background-position: 50% 50%;
 }
 
-.tile:nth-of-type(5) {
+.frame:nth-of-type(4) > .img{
+  border-radius: 50%;
+  background-position: 20% 20%;
+}
+
+.frame:nth-of-type(5) {
   top: 60%;
   left: 20%;
   height: 16rem;
   width: 9rem;
+}
+
+.frame:nth-of-type(5) > .img {
   background-position: 70% 70%;
 }
 
-.tile:last-of-type {
+.frame:last-of-type {
+  top: 80%;
+  left: 80%;
+  height: 10rem;
+  width: 10rem;
+}
+
+.img:last-of-type {
   top: 80%;
   left: 80%;
   height: 10rem;

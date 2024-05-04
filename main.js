@@ -165,8 +165,9 @@ const imagesArr = [
   "./public/img/paintings/6.jpg",
 ];
 
-const introDivs = document.querySelectorAll(".tile");
-console.log(introDivs);
+const introDivs = document.querySelectorAll(".img");
+//
+let arrIntroDivs = Array.from(introDivs);
 
 // let e;
 
@@ -180,13 +181,6 @@ console.log(introDivs);
 
 // let arrIntroDivs = Array.from(introDivs);
 
-// introDivs.forEach((element, index) => {
-//   let elIndex;
-//   element.addEventListener("mouseover", (e) => {
-//     console.log(e.target, index);
-//     let el = arrIntroDivs.find((element) => element === e.target);
-//     elIndex = index;
-//     console.log("aloo", elIndex);
-//   });
-//   element.style.backgroundImage = `url('${imagesArr[elIndex]}')`;
-// });
+introDivs.forEach((element, index) => {
+  element.style.backgroundImage = `url('${imagesArr[index]}')`;
+});
