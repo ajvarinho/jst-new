@@ -71,17 +71,13 @@ ul {
   z-index: 100;
 }
 
-.frame-line {
-
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: dash 2s linear forwards;
-    
+.polyline {
+  animation: draw 5s linear forwards;
 }
 
-@keyframes dash {
+@keyframes draw {
   to {
-    stroke-dashoffset: 100;
+    stroke-dashoffset: 0;
   }
 }
 
@@ -133,15 +129,14 @@ section {
 .frame {
   position: absolute;
   transition-duration: .7s;
-  animation-fill-mode: forwards;  
-  border: 1px solid red;
+
 }
 
 .img {
   opacity: 0;
-  height: 100%;
-  width: 100%;
   transition-duration: .7s;
+  /**/
+
 }
 
 .frame::before {
@@ -150,12 +145,20 @@ section {
   position: absolute;
   height: 100%;
   width: 100%;
-  border: 1px solid red;
+  transition-duration: .7s;
+  /* background: linear-gradient(45deg, rgba(128, 128, 128, 0.5), rgba(0, 0, 0, 0.5)); */
+}
+
+.frame:active::before {
+  transform: scale(1.5);
+  opacity: 0;
 }
 
 .img:hover {
   cursor: pointer;
   opacity: 1;
+  border: 1px solid chartreuse;
+  transform: scale(1.2);
 }
 
 .img:active {
@@ -208,7 +211,7 @@ section {
 
 .frame:nth-of-type(4) > .img{
   border-radius: 50%;
-  background-position: 20% 20%;
+  background-position: 50% 20%;
 }
 
 .frame:nth-of-type(5) {
@@ -243,6 +246,23 @@ section.about {
 
 .about-title {
   padding-inline-start: 1em;
+}
+
+.about-wrap {
+  width: 50%;
+  padding: 2em 3em;
+  transition-duration: .7s;
+}
+
+.about-wrap:hover {
+  background: linear-gradient(35deg, rgba(0, 0, 255, 0.5), rgb(219, 232, 234));
+}
+
+.about-text {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  font-stretch: 1rem;
+  letter-spacing: .2rem;
 }
 
 section.gallery {

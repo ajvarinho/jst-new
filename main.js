@@ -1,4 +1,4 @@
-// test svg
+//SVG FRAME
 const svgWrapEl = document.querySelector(".svg-wrap");
 const svgEl = document.querySelector(".svg-el");
 
@@ -9,83 +9,66 @@ svgEl.setAttribute("height", wrapHeight);
 svgEl.setAttribute("width", wrapWidth);
 svgEl.setAttribute("viewBox", `0, 0, ${wrapWidth}, ${wrapHeight}`);
 
-const mainLineTop = document.querySelector(".main-top");
-const mainLineRight = document.querySelector(".main-right");
-const angleLineRight = document.querySelector(".angle-right");
-//
-const linesBottom = document.getElementsByClassName("bottom");
-//
+const polylineTop = document.querySelector(".polyline.top");
+const polylineLeft = document.querySelector(".polyline.left");
+const polylineBottom = document.querySelector(".polyline.bottom");
+
 let width = Math.round(wrapWidth);
 let height = Math.round(wrapHeight);
 
-mainLineTop.setAttribute("x2", width);
+let pointsTop;
+let pointsLeft;
+let pointsBottom;
+
+pointsTop = `0,50 152,50 152,50 165,0 500,0, 552,50 552,50 ${width},50 ${width},50 ${width},${
+  height / 4 + 50
+} ${width},${height / 4 + 50} ${width - 70},${height / 4 - 50}`;
+
+pointsLeft =
+  "0,50 0,200 0,200 230,125 230,125 230,400 230,400 0,475 0,475 0,842";
+
+pointsBottom = `0,840 ${width},840 ${width},840 ${width},950 ${width},950 400,950 400,950 370,900 370,900 0,900 0,900 0,1800`;
+
+polylineTop.setAttribute("points", pointsTop);
+polylineLeft.setAttribute("points", pointsLeft);
+polylineBottom.setAttribute("points", pointsBottom);
+
+//SVG ANIMATION
+let topLength = Math.floor(polylineTop.getTotalLength());
+let leftLength = Math.floor(polylineLeft.getTotalLength());
+let bottomLength = Math.floor(polylineBottom.getTotalLength());
 //
-mainLineRight.setAttribute("x1", width);
-mainLineRight.setAttribute("y1", 50);
-mainLineRight.setAttribute("x2", width);
-mainLineRight.setAttribute("y2", height / 4 + 100);
+polylineTop.setAttribute("stroke-dasharray", topLength);
+polylineTop.setAttribute("stroke-dashoffset", topLength);
 //
-//tu za height innerHeight (window)?
-angleLineRight.setAttribute("x1", width);
-angleLineRight.setAttribute("y1", height / 4 + 100);
-angleLineRight.setAttribute("x2", width - 50);
-angleLineRight.setAttribute("y2", height / 4 + 50);
+polylineLeft.setAttribute("stroke-dasharray", leftLength);
+polylineLeft.setAttribute("stroke-dashoffset", leftLength);
 //
-linesBottom[0].setAttribute("x2", width);
-linesBottom[1].setAttribute("x1", width);
-linesBottom[1].setAttribute("x2", width);
-linesBottom[2].setAttribute("x1", width);
-//
-//left
+polylineBottom.setAttribute("stroke-dasharray", bottomLength);
+polylineBottom.setAttribute("stroke-dashoffset", bottomLength);
 
-// let lineLengthsArr = [];
+window.addEventListener("scroll", myFunction);
+function myFunction() {
+  let scrollPercent =
+    (document.body.scrollTop + document.documentElement.scrollTop) /
+    (document.documentElement.scrollHeight -
+      document.documentElement.clientHeight);
 
-// const linesArr = document.querySelectorAll(".frame-line");
-// linesArr.forEach((line, index) => {
-//   let lineLength = line.getTotalLength();
-//   lineLength = Math.round(lineLength);
-//   lineLengthsArr.push(lineLength);
-// });
-
-// linesArr.forEach((line, index) => {
-//   line.style.strokeDasharray = lineLengthsArr[index];
-//   line.style.strokeDashOffset = lineLengthsArr[index];
-// });
-
-// // Hide the triangle by offsetting dash. Remove this line to show the triangle before scroll draw
-// linesArr.forEach((line, index) => {
-//   //
-//   //line.style.strokeDashOffset = lineLengthsArr[index];
-// });
-
-// // Find scroll percentage on scroll (using cross-browser properties), and offset dash same amount as percentage scrolled
-// window.addEventListener("scroll", myFunction);
-
-// function myFunction() {
-//   let scrollPercent =
-//     (document.body.scrollTop + document.documentElement.scrollTop) /
-//     (document.documentElement.scrollHeight -
-//       document.documentElement.clientHeight);
-
-//   console.log("scroll percent", scrollPercent);
-//   let drawLine;
-//   //
-//   let drawLineArr = [];
-
-//   linesArr.forEach((line, index) => {
-//     drawLine = Math.round(lineLengthsArr[index] * scrollPercent);
-//     drawLineArr.push(drawLine);
-//     //bilo dasharray
-//     //stroke dash array fragmentira linije
-//     line.style.strokeDashoffset = lineLengthsArr[index] - drawLine;
-//   });
-// }
+  //test
+  let testVal = document.documentElement.scrollTop;
+  console.log(
+    "document.documentElement.scrollTop",
+    testVal,
+    "document.documentElement.scrollHeight",
+    document.documentElement.scrollHeight,
+    "document.documentElement.clientHeight",
+    document.documentElement.clientHeight
+  );
+}
 
 // p5.js
 
 let scaleTest;
-
-//
 const canvasWrap = document.getElementById("canvas-wrap");
 let canvasWrapHeight = canvasWrap.offsetHeight;
 let canvasWrapWidth = canvasWrap.offsetWidth;
@@ -103,59 +86,34 @@ function setup() {
 }
 
 function draw() {
-  //background(253, 250, 251);
   background("white");
-
   let r1 = map(mouseX, 0, 1000, 0, innerWidth, true);
   let r2 = height - r1;
 
   //translate(720, 500);
-
   stroke(27, 134, 255, r1 - 200);
-  rect(700, 250, 150, 150);
 
-  ellipse(1000, 200, 75, 75);
-
-  rect(1300, 200, 100, 100);
-  rect(1200, 350, 250, 150);
-
-  // ellipse(1450, 400, 120, 120);
-  ellipse(650, 400, 100, 100);
-  // ellipse(900, 500, 200, 200);
-  // ellipse(1100, 600, 100, 100);
-  ellipse(1300, 500, 100, 100);
-  // rect(1400, 500, 50, 50);
-  rect(650, 650, 100, 250);
-  rect(900, 730, 250, 100);
-  rect(1300, 700, 150, 150);
+  // rect(700, 250, 150, 150);
+  // ellipse(1000, 200, 75, 75);
+  // rect(1300, 200, 100, 100);
+  // rect(1200, 350, 250, 150);
+  // ellipse(650, 400, 100, 100);
+  // ellipse(1300, 500, 100, 100);
+  // rect(650, 650, 100, 250);
+  // rect(900, 730, 250, 100);
+  // rect(1300, 700, 150, 150);
   //
-  let v1 = createVector(width / 2 - 50, height / 2);
-  let v2 = createVector(width / 2 + 50, height / 2);
+  // let i;
+  // for (i = 0; i < scale; i++) {
+  //   colorMode(RGB, (i + 1) * scale * 20);
+  //   fill(millis() % ((i + 1) * scale * 20));
+  //   ellipse(i * scale, mouseY, scale, scale);
+  // }
 
-  // background(255);
-  // stroke(0);
-  // strokeWeight(4);
-
-  // push();
-  // translate(v1.x, v1.y);
-  // rotate(-1 * mouseX);
-  // translate(-v1.x, -v1.y);
-  // let r0 = line(v1.x, v1.y, v2.x, v2.y);
-  // strokeWeight(1);
-  // let p1 = point(v1.x, v1.y);
-  // let p2 = point(v2.x, v2.y);
-  // pop();
-
-  //
-  let i;
-  for (i = 0; i < scale; i++) {
-    colorMode(RGB, (i + 1) * scale * 20);
-    fill(millis() % ((i + 1) * scale * 20));
-    ellipse(i * scale, mouseY, scale, scale);
-  }
+  noLoop();
 }
 
-// tiles hover
+// BG IMAGES WELCOME PAGE
 
 const imagesArr = [
   "./public/img/paintings/1.jpg",
