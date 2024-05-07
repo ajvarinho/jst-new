@@ -71,9 +71,24 @@ ul {
   z-index: 100;
 }
 
-.polyline {
+.polyline:not(.info, .works) {
   animation: draw 5s linear forwards;
 }
+
+.animate-info {
+  animation: draw 5s linear forwards;
+}
+
+.path {
+  opacity: 0;
+  transition-duration: .5s;
+}
+
+.hover {
+  opacity: 1;
+  animation: draw 2s linear forwards;
+}
+
 
 @keyframes draw {
   to {
@@ -123,9 +138,7 @@ section {
   left: 25%;
   right: 10%;
   bottom: 10%;
-
   /* height: fit-content; */
-
 }
 
 .frame {
@@ -148,6 +161,7 @@ section {
   height: 100%;
   width: 100%;
   transition-duration: .7s;
+  border: 1px solid blue;
   /* background: linear-gradient(45deg, rgba(128, 128, 128, 0.5), rgba(0, 0, 0, 0.5)); */
 }
 
@@ -241,13 +255,14 @@ section {
   width: 10rem;
 }
 
+/**/
+.section-title {
+  padding-inline-start: 1em;
+}
+
 section.about {
   position: relative;
   top: 6rem;
-}
-
-.about-title {
-  padding-inline-start: 1em;
 }
 
 .about-wrap {
@@ -268,6 +283,33 @@ section.about {
 }
 
 section.gallery {
-  border: 2px solid rgb(0, 255, 17);
+  position: relative;
+  top: 6rem;
   height: 100vh;
+}
+
+.gallery-menu__wrap {
+  padding-inline-start: 2em;
+  padding-inline-end: 2em;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid green;
+}
+
+.gallery-items__wrap {
+  overflow: scroll;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.gallery-item {
+  height: 15rem;
+  width: 10rem;
+  border: 1px solid red;
+}
+
+.footer {
+  margin-top: 5rem;
+  text-align: center;
 }
